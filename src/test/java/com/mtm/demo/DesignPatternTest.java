@@ -3,7 +3,7 @@ package com.mtm.demo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.demo.designpattern.Singleton;
+import com.mtm.demo.designpattern.Singleton;
 
 public class DesignPatternTest {
 
