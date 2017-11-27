@@ -1,4 +1,4 @@
-package com.mtm1.dempo.crypt;
+package com.mtm.dempo.crypt;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
