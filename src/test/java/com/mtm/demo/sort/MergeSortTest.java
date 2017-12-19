@@ -1,15 +1,18 @@
 package com.mtm.demo.sort;
 
-public class MergeSort {
+import org.junit.Test;
+
+public class MergeSortTest {
 
 	private int[] array;
 	private int[] tempMergArr;
 	private int length;
 
-	public static void main(String a[]) {
+	@Test
+	public void testMergeSort() {
 
 		int[] inputArr = { 45, 23, 11, 89, 77, 98, 4, 28, 65, 43 };
-		MergeSort mms = new MergeSort();
+		MergeSortTest mms = new MergeSortTest();
 		mms.sort(inputArr);
 		for (int i : inputArr) {
 			System.out.print(i);
