@@ -13,7 +13,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -22,10 +21,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.commons.lang.time.DateUtils;
 import org.databene.benerator.engine.DefaultBeneratorContext;
 import org.databene.benerator.primitive.datetime.DateTimeGenerator;
-import org.databene.benerator.util.RandomUtil;
 import org.databene.domain.address.Address;
 import org.databene.domain.address.AddressGenerator;
 import org.databene.domain.person.Person;
@@ -89,7 +86,7 @@ public class GenerateData {
 				addressGenerator.init(new DefaultBeneratorContext());
 				Address address = addressGenerator.generate();
 
-				Template template = cfg.getTemplate("src/main/resources/GenerateData.ftl");
+				Template template = cfg.getTemplate("src/GenerateData.ftl");
 				Map<String, String> data = new HashMap<String, String>();
 
 				String[] applicationTypes = { "C", "B", "P" };
@@ -98,13 +95,6 @@ public class GenerateData {
 
 				data.put("APPLICATION_DATE", dateFormat.format(date) + "");
 				data.put("APPLICATION_TYPE", applicationTypes[random.nextInt(3)]);
-				data.put("CR_DECSN_CONSUMER_SURR_ID", RandomUtil.randomInt(1000000, 1100000) + "");
-
-				data.put("INCOMING_CRID", Calendar.getInstance().get(Calendar.YEAR) + ""
-						+ Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "" + count + "");
-				data.put("SSN_ENCRYPT", random.nextInt(100000) + "");
-				data.put("ORIGINAL_CRID", Calendar.getInstance().get(Calendar.YEAR) + ""
-						+ Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "" + count + "");
 
 				// Customer Details
 				data.put("FULL_NAME", person.getGivenName() + " " + person.getFamilyName() + "");
@@ -123,26 +113,7 @@ public class GenerateData {
 				data.put("STATE", address.getState() + "");
 				data.put("BIRTH_DT", dateFormat.format(person.getBirthDate()) + "");
 
-				data.put("SUPPRESSION_FLAG", suppressionFlag[random.nextInt(2)] + "");
-				data.put("FINAL_CREDIT_CLASS", "0");
-				data.put("CREDIT_CLASS_PORT_IN", "0");
-				data.put("CREDIT_CLASS_WOUT_PORT_IN", "0");
-				data.put("COUNTER", "0");
-				data.put("CHANNEL", random.nextInt(1000) + "");
-				data.put("EFFECTIVE_DT", dateFormat.format(date) + "");
-				data.put("EXPIRATION_DT", dateFormat.format(DateUtils.addMonths(date, 2)) + "");
-				data.put("TRANSACTION_TIMESTAMP", timestampFormat.format(date) + "");
-				data.put("PROMOTIONAL_CODE", "0");
-				data.put("INDV_ID", "0");
-				data.put("CCID", "");
-				data.put("GAMING_DUP_COUNTER", "0");
-				data.put("GAMING_FLAG", gamingFlag[random.nextInt(2)] + "");
-				data.put("SSN_VALID_FLAG", "X");
-
 				template.process(data, sw);
-				// template.process(data, out);
-				// out.flush();
-
 				generatedData = sw.toString();
 
 				generatedDataList.add(generatedData);
