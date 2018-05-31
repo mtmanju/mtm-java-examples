@@ -1,1 +1,1 @@
-# my-demos
+# mtm-java-tutorials
