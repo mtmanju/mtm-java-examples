@@ -13,9 +13,10 @@
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
+		<!-- This parent definiton to spring boot is to manage spring dependencies -->
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.8.RELEASE</version>
+		<version>2.0.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
