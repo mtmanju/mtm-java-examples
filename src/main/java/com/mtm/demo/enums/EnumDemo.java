@@ -1,4 +1,4 @@
-package com.mtm.demo;
+package com.mtm.demo.enums;
 
 class EnumDemo {
 
