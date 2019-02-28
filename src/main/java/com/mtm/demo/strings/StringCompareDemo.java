@@ -1,4 +1,4 @@
-package com.mtm.demo.stringhandling;
+package com.mtm.demo.strings;
 
 public class StringCompareDemo {
 

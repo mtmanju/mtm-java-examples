@@ -1,4 +1,4 @@
-package com.mtm.demo.stringhandling;
+package com.mtm.demo.strings;
 
 // 1. class should be final
 // 2. member variables should be final

@@ -52,7 +52,7 @@ public class GenerateData {
 		}
 
 		try {
-			LOGGER.info("", GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
+			LOGGER.info("" + GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
 		} catch (IOException e) {
 			LOGGER.error("", e);
 		}

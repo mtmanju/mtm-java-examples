@@ -1,4 +1,4 @@
-package com.mtm.demo.reflectionAPI;
+package com.mtm.demo.reflection;
 
 import java.lang.reflect.Method;
 

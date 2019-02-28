@@ -1,4 +1,4 @@
-package com.mtm.demo.internationalization;
+package com.mtm.demo.i18n;
 
 import java.util.*;
 
