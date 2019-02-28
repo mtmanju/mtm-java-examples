@@ -1,4 +1,4 @@
-package com.mtm.demo.databene.benerator.examples;
+package com.mtm.demo.databene.benerator;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -27,40 +27,42 @@ import org.databene.domain.address.Address;
 import org.databene.domain.address.AddressGenerator;
 import org.databene.domain.person.Person;
 import org.databene.domain.person.PersonGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public class GenerateData {
+	private static final Logger LOGGER = LoggerFactory.getLogger(GenerateData.class);
 
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 	private static final AtomicInteger autoIncrement = new AtomicInteger(0);
 
 	public static void main(String[] args) {
+		LOGGER.info("Started at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
 
-		System.out.println("Started at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
-
-		List<String> generatedList = GenerateData.generateData(10);
-
-		System.out.println("Completed at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
-		System.out.println("Total Records Generated: " + generatedList.size());
+		List<String> generatedList = GenerateData.generateData(2);
+		LOGGER.info("Completed at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
+		LOGGER.info("Total Records Generated: " + generatedList.size());
 
 		for (String str : generatedList) {
-			System.out.println(str);
+			LOGGER.info(str);
 		}
 
 		try {
-			System.out.println(GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
+			LOGGER.info("", GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
 		} catch (IOException e) {
-			System.err.println(e);
+			LOGGER.error("", e);
 		}
 
 		// Retrieve resource
 		String is = GenerateData.class.getResource("test_6.json").getFile();
-		System.out.println(is.toString());
+		LOGGER.info(is.toString());
 	}
 
+	@SuppressWarnings({ "unused", "deprecation" })
 	public static List<String> generateData(int noOfRecordsToGenerate) {
 		List<String> generatedDataList = new ArrayList<String>();
 		for (int i = 0; i < noOfRecordsToGenerate; i++) {
@@ -129,11 +131,11 @@ public class GenerateData {
 						out.write(generatedData.getBytes());
 						out.flush();
 					} catch (IOException x) {
-						System.err.println(x);
+						LOGGER.error("", x);
 					}
 				}
 			} catch (Exception e) {
-				System.err.println(e);
+				LOGGER.error("", e);
 			} finally {
 				personGenerator.close();
 				addressGenerator.close();

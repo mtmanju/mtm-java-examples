@@ -26,6 +26,7 @@ public enum EnumDemoAdvanced {
 		return getEnumFromString(EnumDemoAdvanced.class, value);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T extends Enum<T>> T getEnumFromString(Class<T> enumClass, String value) {
 		if (null == enumClass) {
 			throw new IllegalArgumentException("EnumClass value can't be null.");
