@@ -19,11 +19,11 @@ public class BytesDemo {
             // ranges from http://en.wikipedia.org/wiki/UTF-8
             int skip = 0;
             int more;
-            if (c <= 0x007f) {
+            if (c <= 0x007F) {
                 more = 1;
             } else if (c <= 0x07FF) {
                 more = 2;
-            } else if (c <= 0xd7ff) {
+            } else if (c <= 0xD7FF) {
                 more = 3;
             } else if (c <= 0xDFFF) {
                 // surrogate area, consume next char as well

@@ -20,6 +20,5 @@ class EnumDemo {
         default:
             System.out.println("other day");
         }
-
     }
 }

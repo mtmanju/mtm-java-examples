@@ -1,6 +1,6 @@
 package com.mtm.demo;
 
-public class EqualsandEqualsOperator {
+public class EqualsAndEqualsOperator {
 
     public static void main(String[] args) {
         String str1 = "Manjunath";
