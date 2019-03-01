@@ -1,0 +1,9 @@
+{
+	"emp_id": "100",
+	"emp_name": "MANJU",
+	"direct_reports": [
+		"SMITA",
+		"NETHRA",
+		"POOJA"
+	]
+}
