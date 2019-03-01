@@ -2,17 +2,16 @@ package com.mtm.demo.math;
 
 class ReverseNumber {
 
-    public static void main(String args[]) {
-        Integer n = 564;
-        int reverse = 0;
-System.out.println(n.shortValue());
+	public static void main(String args[]) {
+		int input = 5642, copyInput = input;
+		int reverse = 0;
 
-        while (n != 0) {
-            reverse = reverse * 10;
-            reverse = reverse + n % 10;
-            n = n / 10;
-        }
+		while (input != 0) {
+			reverse = reverse * 10;
+			reverse = reverse + input % 10;
+			input = input / 10;
+		}
 
-        System.out.println("Reverse of number is " + reverse);
-    }
+		System.out.println("Reverse of number " + copyInput + " is " + reverse);
+	}
 }
