@@ -38,7 +38,7 @@ public class GenerateData {
 
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-	private static final AtomicInteger autoIncrement = new AtomicInteger(0);
+	private static final AtomicInteger AUTO_INCREMENT = new AtomicInteger(0);
 
 	public static void main(String[] args) {
 		LOGGER.info("Started at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
@@ -67,7 +67,7 @@ public class GenerateData {
 		List<String> generatedDataList = new ArrayList<String>();
 		for (int i = 0; i < noOfRecordsToGenerate; i++) {
 			String generatedData = "";
-			int count = 100000000 + autoIncrement.incrementAndGet();
+			int count = 100000000 + AUTO_INCREMENT.incrementAndGet();
 			PersonGenerator personGenerator = new PersonGenerator();
 			AddressGenerator addressGenerator = new AddressGenerator();
 			DateTimeGenerator dateGenerator = new DateTimeGenerator();
@@ -88,7 +88,7 @@ public class GenerateData {
 				addressGenerator.init(new DefaultBeneratorContext());
 				Address address = addressGenerator.generate();
 
-				Template template = cfg.getTemplate("src/GenerateData.ftl");
+				Template template = cfg.getTemplate("src/main/resources/GenerateData.ftl");
 				Map<String, String> data = new HashMap<String, String>();
 
 				String[] applicationTypes = { "C", "B", "P" };
@@ -119,11 +119,11 @@ public class GenerateData {
 				generatedData = sw.toString();
 
 				generatedDataList.add(generatedData);
-				if (count % 5 == 0) {
+				if (count % 2 == 0) {
 					generatedDataList.add(generatedData);
 
 					File file = new File(GenerateData.class.getResource("").getPath());
-					Path p = Paths.get(file.getAbsolutePath() + "/test_" + autoIncrement.incrementAndGet() + ".json");
+					Path p = Paths.get(file.getAbsolutePath() + "/test_" + AUTO_INCREMENT.incrementAndGet() + ".json");
 
 					try {
 						OutputStream out = new BufferedOutputStream(Files.newOutputStream(p,
