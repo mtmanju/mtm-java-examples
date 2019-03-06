@@ -26,5 +26,8 @@ public class DateFormatUtils extends DateUtils {
 		DateFormat df = new SimpleDateFormat(format);
 		return df.format(date);
 	}
+	
 
+	public static void main(String[] args) {
+	}
 }

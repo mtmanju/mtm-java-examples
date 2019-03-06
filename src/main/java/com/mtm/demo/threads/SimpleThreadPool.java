@@ -3,7 +3,7 @@ package com.mtm.demo.threads;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-class WorkerThread implements Runnable {
+class WorkerThread extends Thread implements Runnable {
 
     private String message;
 

@@ -15,7 +15,7 @@ public class InsertionSort {
 
 		// 2nd Way
 		Integer[] arrayOfNumbersForRecursive = { 7, 5, 1, 6, 2, 3, 4 };
-		insertionSortRecursive(arrayOfNumbersForRecursive);
+		insertionSortRecursive(arrayOfNumbersForRecursive, arrayOfNumbersForRecursive.length);
 		System.out.println("Insertion Sort Recursive -->");
 		for (Integer number : arrayOfNumbersForRecursive) {
 			System.out.println(number);
@@ -34,10 +34,6 @@ public class InsertionSort {
 			}
 			arrayOfNumbers[j + 1] = key;
 		}
-	}
-
-	public static void insertionSortRecursive(Integer[] arrayOfNumbers) {
-		insertionSortRecursive(arrayOfNumbers, arrayOfNumbers.length);
 	}
 
 	private static void insertionSortRecursive(Integer[] arrayOfNumbers, int arrayLength) {

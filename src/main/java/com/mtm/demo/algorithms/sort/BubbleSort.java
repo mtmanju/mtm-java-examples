@@ -34,10 +34,11 @@ public class BubbleSort {
 	}
 
 	static void optimizedBubbleSort(Integer[] arrayOfNumbers) {
-		int i = 0, arrayLength = arrayOfNumbers.length;
+		int i = 0;
+		int arrayLength = arrayOfNumbers.length;
 
 		boolean swapNeeded = true;
-		while (i < arrayLength - 1 && swapNeeded) {
+		while ((i < arrayLength - 1) && swapNeeded) {
 			swapNeeded = false;
 			for (int j = 1; j < arrayLength - i; j++) {
 				if (arrayOfNumbers[j - 1] > arrayOfNumbers[j]) {

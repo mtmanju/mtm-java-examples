@@ -7,14 +7,14 @@ package com.mtm.demo.strings;
 
 public final class ImmutableClass {
 
-    final String pancardNumber;
+	final String pancardNumber;
 
-    public ImmutableClass(String pancardNumber) {
-        this.pancardNumber = pancardNumber;
-    }
+	public ImmutableClass(String pancardNumber) {
+		this.pancardNumber = pancardNumber;
+	}
 
-    public String getPancardNumber() {
-        return pancardNumber;
-    }
+	public String getPancardNumber() {
+		return pancardNumber;
+	}
 
 }
