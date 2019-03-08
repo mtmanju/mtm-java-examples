@@ -23,13 +23,13 @@ public class CustomLinkedList<E> {
 		}
 	}
 
-	public List<Node<E>> getData(Node<E> node) {
+	public List<Node<E>> getData() {
 		List<Node<E>> nodes = new ArrayList<>();
-		while (null != node.next) {
-			nodes.add(node);
-			node = node.next;
+		while (null != root.next) {
+			nodes.add(root);
+			root = root.next;
 		}
-		nodes.add(node);
+		nodes.add(root);
 		return nodes;
 	}
 
@@ -40,6 +40,20 @@ public class CustomLinkedList<E> {
 		list.addData("3");
 		list.addData("Hello");
 
-		System.out.println("Items:\t" + list.getData(list.root));
+		System.out.println("Items:\t" + list.getData());
 	}
+}
+
+class Node<E> {
+	E key;
+	Node<E> next;
+
+	public Node(E key) {
+		this.key = key;
+	}
+
+	public String toString() {
+		return "" + key;
+	}
+
 }
