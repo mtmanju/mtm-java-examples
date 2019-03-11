@@ -2,6 +2,7 @@ package com.mtm.demo;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Coder {
 
@@ -31,10 +32,13 @@ public class Coder {
 
 		Map<Coder, String> myMap = new HashMap<Coder, String>();
 		myMap.put(c1, c1.language);
-		myMap.put(c1, c2.language);
+		myMap.put(c2, c2.language);
 		myMap.put(c3, c3.language);
-		System.out.println("Map Size:" + myMap.size());
-		System.out.println(myMap.get(c2));
+		System.out.println("Map Size: " + myMap.size());
+
+		for (Entry<Coder, String> entry : myMap.entrySet()) {
+			System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
+		}
 	}
 
 }

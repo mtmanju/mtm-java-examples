@@ -5,40 +5,38 @@ import java.util.List;
 
 public class CollectionSplitter {
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    static List split(List srcList, int index) {
-        List d = new ArrayList();
-        for (int i = 0; i < srcList.size(); i = i + 4) {
-            if ((i + 4) <= srcList.size()) {
-                d.add(srcList.subList(i, i + 4));
-            } else {
-                d.add(srcList.subList(i, srcList.size()));
-            }
-        }
-        return d;
-    }
+	static List<List<String>> split(List<String> list, int index) {
+		List<List<String>> newList = new ArrayList<List<String>>();
+		for (int i = 0; i < list.size(); i = i + index) {
+			if ((i + index) <= list.size()) {
+				newList.add(list.subList(i, i + index));
+			} else {
+				newList.add(list.subList(i, list.size()));
+			}
+		}
+		return newList;
+	}
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public static void main(String[] args) {
-        long start = System.currentTimeMillis();
-        List resultList = new ArrayList();
-        List list = new ArrayList();
-        list.add("one");
-        list.add("two");
-        list.add("three");
-        list.add("four");
-        list.add("five");
-        list.add("six");
-        list.add("seven");
-        list.add("eight");
-        list.add("nine");
-        list.add("ten");
+	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
+		List<List<String>> resultList = new ArrayList<List<String>>();
+		List<String> list = new ArrayList<String>();
+		list.add("one");
+		list.add("two");
+		list.add("three");
+		list.add("four");
+		list.add("five");
+		list.add("six");
+		list.add("seven");
+		list.add("eight");
+		list.add("nine");
+		list.add("ten");
 
-        System.out.println(start);
-        resultList = split(list, 4);
-        System.out.println(resultList);
-        long end = System.currentTimeMillis();
-        System.out.println(end);
-        System.out.println("Time Diff:" + (end - start));
-    }
+		System.out.println("Start Time: " + start);
+		resultList = split(list, 4);
+		System.out.println(resultList);
+		long end = System.currentTimeMillis();
+		System.out.println("End Time: " + end);
+		System.out.println("Time Diff: " + (end - start) + " ms");
+	}
 }
