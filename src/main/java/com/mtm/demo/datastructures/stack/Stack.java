@@ -1,4 +1,4 @@
-package com.mtm.demo.datastructures;
+package com.mtm.demo.datastructures.stack;
 
 public class Stack {
 
@@ -44,5 +44,13 @@ public class Stack {
 		stack.printStack();
 		stack.pop();
 		stack.printStack();
+	}
+}
+class Item {
+	int data;
+	Item next;
+
+	public Item(int data) {
+		this.data = data;
 	}
 }

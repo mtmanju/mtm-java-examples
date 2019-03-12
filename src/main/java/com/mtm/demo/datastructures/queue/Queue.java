@@ -1,4 +1,4 @@
-package com.mtm.demo.datastructures;
+package com.mtm.demo.datastructures.queue;
 
 public class Queue {
 	private Item front;
@@ -47,5 +47,14 @@ public class Queue {
 		q.dequeue();
 		q.dequeue();
 		q.printQueue();
+	}
+}
+
+class Item {
+	int data;
+	Item next;
+
+	public Item(int data) {
+		this.data = data;
 	}
 }

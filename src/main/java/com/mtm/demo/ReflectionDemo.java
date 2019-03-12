@@ -4,15 +4,19 @@ import java.lang.reflect.Method;
 
 class ReflectionDemo {
 
-    public static void main(String args[]) {
-        try {
-            @SuppressWarnings("rawtypes")
-            Class c = Class.forName("/Demos/bin/com/demo/Cat.class");
-            Method m[] = c.getDeclaredMethods();
-            for (int i = 0; i < m.length; i++)
-                System.out.println(m[i].toString());
-        } catch (Throwable e) {
-            System.err.println(e);
-        }
-    }
+	public static void main(String args[]) {
+		try {
+			Class<?> c = Class.forName("com.mtm.demo.ReflectionDemo");
+			Method methods[] = c.getDeclaredMethods();
+			for (int i = 0; i < methods.length; i++) {
+				System.out.println(methods[i].toString());
+			}
+		} catch (Throwable e) {
+			System.err.println(e);
+		}
+	}
+
+	public long addNumber(int a, int b) {
+		return a + b;
+	}
 }

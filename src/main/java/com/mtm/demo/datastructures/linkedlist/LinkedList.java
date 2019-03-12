@@ -1,4 +1,4 @@
-package com.mtm.demo.datastructures;
+package com.mtm.demo.datastructures.linkedlist;
 
 public class LinkedList {
 
@@ -37,7 +37,7 @@ public class LinkedList {
 		System.out.println();
 
 		while (temp != null) {
-			System.out.println(">" + temp.data);
+			System.out.println(temp.data);
 			temp = temp.next;
 		}
 	}
@@ -51,5 +51,14 @@ public class LinkedList {
 		list.printList();
 		list.removeFromStart();
 		list.printList();
+	}
+}
+
+class Node {
+	int data;
+	Node next;
+
+	public Node(int data) {
+		this.data = data;
 	}
 }

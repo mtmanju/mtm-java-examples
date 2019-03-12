@@ -11,12 +11,11 @@ public class PalindromeExample {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		
-		System.out.print("Enter the String for check: ");
+		System.out.print("Enter the string for checking: ");
 		String originalStr = scanner.nextLine();
 		scanner.close();
 
-		// Case1: Using Recursion
+		// Case 1: Using Recursion
 		printResult(isPalindromeUsingRecursion(originalStr), originalStr);
 
 		// Case 2: Using for loop
@@ -52,11 +51,11 @@ public class PalindromeExample {
 		return originalStr.equals(reversedStr) ? true : false;
 	}
 
-	public static void printResult(boolean isPalindrome, String inputStr) {
+	public static void printResult(boolean isPalindrome, String originalStr) {
 		if (isPalindrome) {
-			System.out.println(inputStr + " is a palindrome");
+			System.out.println(originalStr + " is a palindrome");
 		} else {
-			System.out.println(inputStr + " is not a palindrome");
+			System.out.println(originalStr + " is not a palindrome");
 		}
 	}
 

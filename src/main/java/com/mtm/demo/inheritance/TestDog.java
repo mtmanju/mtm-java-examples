@@ -1,4 +1,4 @@
-package com.mtm.demo;
+package com.mtm.demo.inheritance;
 
 import java.util.ArrayList;
 import java.util.List;

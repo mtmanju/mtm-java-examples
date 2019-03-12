@@ -1,4 +1,7 @@
-package com.mtm.demo;
+package com.mtm.demo.inheritance;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class Animal {
 }
@@ -28,6 +31,9 @@ public class InstanceOfDemo extends Animal {
 
         Animal aCat = new Cat();
         Dog.method(aCat);
+        
+        Dog d = (Dog) new Animal(); // Will throw class cast exception
+		d.method(aCat);
     }
 
 }
