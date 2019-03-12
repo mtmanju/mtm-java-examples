@@ -7,10 +7,10 @@ public class CalculatePowerOfNumber {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter base value: ");
+		System.out.print("Enter base value: ");
 		int base = scanner.nextInt();
 
-		System.out.println("Enter exponent value: ");
+		System.out.print("Enter exponent value: ");
 		int exponent = scanner.nextInt();
 		scanner.close();
 
