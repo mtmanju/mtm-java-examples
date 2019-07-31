@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -13,24 +12,26 @@
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<!-- This parent definiton to spring boot is to manage spring dependencies -->
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>2.1.6.RELEASE</version>
+		<relativePath />
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<pdfbox-tools.version>2.0.3</pdfbox-tools.version>
-		<pdf2dom.version>1.6</pdf2dom.version>
+		<pdf2dom.version>1.8</pdf2dom.version>
 		<itextpdf.version>5.5.10</itextpdf.version>
+		<pdfbox-tools.version>2.0.3</pdfbox-tools.version>
+		<poi-ooxml.version>3.15</poi-ooxml.version>
 		<xmlworker.version>5.5.10</xmlworker.version>
 		<poi-scratchpad.version>3.15</poi-scratchpad.version>
+		<apache-commons.version>3.6.1</apache-commons.version>
+		<jbcrypt.version>0.4</jbcrypt.version>
 		<batik-transcoder.version>1.8</batik-transcoder.version>
-		<poi-ooxml.version>3.15</poi-ooxml.version>
+		<databene-benerator.version>0.9.8</databene-benerator.version>
 	</properties>
 
 	<dependencies>
@@ -45,7 +46,7 @@
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
-			<version>0.4</version>
+			<version>${jbcrypt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -62,7 +63,7 @@
 		<dependency>
 			<groupId>org.databene</groupId>
 			<artifactId>databene-benerator</artifactId>
-			<version>0.9.8</version>
+			<version>${databene-benerator.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -71,7 +72,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-math3</artifactId>
-			<version>3.6.1</version>
+			<version>${apache-commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -140,13 +141,23 @@
 	</dependencies>
 
 	<build>
+		<finalName>mtm-java-tutorials</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<addResources>true</addResources>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
-		<finalName>mtm-java-tutorials</finalName>
 	</build>
 
 </project>

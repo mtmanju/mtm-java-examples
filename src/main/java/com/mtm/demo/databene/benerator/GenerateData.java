@@ -27,44 +27,42 @@ import org.databene.domain.address.Address;
 import org.databene.domain.address.AddressGenerator;
 import org.databene.domain.person.Person;
 import org.databene.domain.person.PersonGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class GenerateData {
-	private static final Logger LOGGER = LoggerFactory.getLogger(GenerateData.class);
-
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 	private static final AtomicInteger AUTO_INCREMENT = new AtomicInteger(0);
 
 	public static void main(String[] args) {
-		LOGGER.info("Started at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
+		log.info("Started at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
 
 		List<String> generatedList = GenerateData.generateData(2);
-		LOGGER.info("Completed at: " + timestampFormat.format(new Date(System.currentTimeMillis())));
-		LOGGER.info("Total Records Generated: " + generatedList.size());
+		log.info("Completed at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
+		log.info("Total Records Generated: {}", generatedList.size());
 
 		for (String str : generatedList) {
-			LOGGER.info(str);
+			log.info(str);
 		}
 
 		try {
-			LOGGER.info("" + GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
+			log.info("{}", GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
 		} catch (IOException e) {
-			LOGGER.error("", e);
+			log.error("", e);
 		}
 
 		// Retrieve resource
-		String is = GenerateData.class.getResource("test_6.json").getFile();
-		LOGGER.info(is.toString());
+		String retrievedResource = GenerateData.class.getResource("test_6.json").getFile();
+		log.info("{}", retrievedResource);
 	}
 
 	@SuppressWarnings({ "unused", "deprecation" })
 	public static List<String> generateData(int noOfRecordsToGenerate) {
-		List<String> generatedDataList = new ArrayList<String>();
+		List<String> generatedDataList = new ArrayList<>();
 		for (int i = 0; i < noOfRecordsToGenerate; i++) {
 			String generatedData = "";
 			int count = 100000000 + AUTO_INCREMENT.incrementAndGet();
@@ -72,10 +70,8 @@ public class GenerateData {
 			AddressGenerator addressGenerator = new AddressGenerator();
 			DateTimeGenerator dateGenerator = new DateTimeGenerator();
 
-			try {
+			try (StringWriter sw = new StringWriter()) {
 				Configuration cfg = new Configuration();
-				StringWriter sw = new StringWriter();
-
 				Random random = new Random();
 
 				dateGenerator.init(new DefaultBeneratorContext());
@@ -89,11 +85,9 @@ public class GenerateData {
 				Address address = addressGenerator.generate();
 
 				Template template = cfg.getTemplate("src/main/resources/GenerateData.ftl");
-				Map<String, String> data = new HashMap<String, String>();
+				Map<String, String> data = new HashMap<>();
 
 				String[] applicationTypes = { "C", "B", "P" };
-				String[] suppressionFlag = { "N", "Y" };
-				String[] gamingFlag = { "N", "Y" };
 
 				data.put("APPLICATION_DATE", dateFormat.format(date) + "");
 				data.put("APPLICATION_TYPE", applicationTypes[random.nextInt(3)]);
@@ -125,17 +119,14 @@ public class GenerateData {
 					File file = new File(GenerateData.class.getResource("").getPath());
 					Path p = Paths.get(file.getAbsolutePath() + "/test_" + AUTO_INCREMENT.incrementAndGet() + ".json");
 
-					try {
-						OutputStream out = new BufferedOutputStream(Files.newOutputStream(p,
-								StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
+					try (OutputStream out = new BufferedOutputStream(Files.newOutputStream(p,
+							StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE))) {
 						out.write(generatedData.getBytes());
 						out.flush();
-					} catch (IOException x) {
-						LOGGER.error("", x);
 					}
 				}
 			} catch (Exception e) {
-				LOGGER.error("", e);
+				log.error("", e);
 			} finally {
 				personGenerator.close();
 				addressGenerator.close();
@@ -146,7 +137,7 @@ public class GenerateData {
 	}
 
 	public static List<InputStream> loadResources(final String name, final ClassLoader classLoader) throws IOException {
-		final List<InputStream> list = new ArrayList<InputStream>();
+		final List<InputStream> list = new ArrayList<>();
 		final Enumeration<URL> systemResources = (classLoader == null ? ClassLoader.getSystemClassLoader()
 				: classLoader).getResources(name);
 
