@@ -27,7 +27,7 @@
 		<pdfbox-tools.version>2.0.3</pdfbox-tools.version>
 		<poi-ooxml.version>3.15</poi-ooxml.version>
 		<xmlworker.version>5.5.10</xmlworker.version>
-		<poi-scratchpad.version>3.15</poi-scratchpad.version>
+		<poi-scratchpad.version>5.2.1</poi-scratchpad.version>
 		<apache-commons.version>3.6.1</apache-commons.version>
 		<jbcrypt.version>0.4</jbcrypt.version>
 		<batik-transcoder.version>1.8</batik-transcoder.version>
