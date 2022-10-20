@@ -17,7 +17,7 @@ public class NavigableSetExample {
 		list.add(10000);
 		list.add(10);
 
-		NavigableSet<Integer> ns = new TreeSet<Integer>(list);
+		NavigableSet<Integer> ns = new TreeSet<>(list);
 		System.out.println(ns.tailSet(10, false));
 		System.out.println(ns.tailSet(10));
 		System.out.println(ns.higher(10));

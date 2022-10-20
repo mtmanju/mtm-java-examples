@@ -60,7 +60,7 @@ public class GenerateData {
 		log.info("{}", retrievedResource);
 	}
 
-	@SuppressWarnings({ "unused", "deprecation" })
+	@SuppressWarnings({ "deprecation" })
 	public static List<String> generateData(int noOfRecordsToGenerate) {
 		List<String> generatedDataList = new ArrayList<>();
 		for (int i = 0; i < noOfRecordsToGenerate; i++) {

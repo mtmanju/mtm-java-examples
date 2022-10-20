@@ -1,8 +1,5 @@
 package com.mtm.demo.inheritance;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Animal {
 }
 
