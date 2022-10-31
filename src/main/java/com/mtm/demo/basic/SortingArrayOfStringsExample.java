@@ -1,5 +1,6 @@
 package com.mtm.demo.basic;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,8 +8,8 @@ import org.slf4j.LoggerFactory;
  * @author ManjunathMT
  *
  */
+@Slf4j
 public class SortingArrayOfStringsExample {
-	private static final Logger LOGGER = LoggerFactory.getLogger(PermutationAndCombination.class);
 
 	public static void main(String[] input) {
 		String[] names = { "Pratista", "Manju", "Nethra", "Preeti", "Smita" };
@@ -22,7 +23,7 @@ public class SortingArrayOfStringsExample {
 					names[j] = temp;
 				}
 			}
-			LOGGER.info(names[i]);
+			log.info(names[i]);
 		}
 	}
 }

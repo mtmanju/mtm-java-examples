@@ -1,35 +1,32 @@
 package com.mtm.demo.basic;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author ManjunathMT
- *
  */
+@Slf4j
 public class PermutationAndCombination {
-	private static final Logger LOGGER = LoggerFactory.getLogger(PermutationAndCombination.class);
 
-	public static void main(String[] args) {
-		strPrnt("abc", null, 0);
-	}
+    public static void main(String[] args) {
+        strPrnt("abc", null, 0);
+    }
 
-	private static void strPrnt(String inputStr, String fix, int fixedPost) {
-		if (null == fix) {
-			fix = StringUtils.EMPTY;
-			LOGGER.info(inputStr);
-		} else {
-			if (inputStr.equals(fix)) {
-				return;
-			}
-			LOGGER.info(fix);
-		}
+    private static void strPrnt(String inputStr, String fix, int fixedPost) {
+        if (null == fix) {
+            fix = StringUtils.EMPTY;
+            log.info(inputStr);
+        } else {
+            if (inputStr.equals(fix)) {
+                return;
+            }
+            log.info(fix);
+        }
 
-		for (int i = fixedPost; i < inputStr.length(); i++) {
-			strPrnt(inputStr, fix + inputStr.charAt(i), i + 1);
-		}
-
-	}
+        for (int i = fixedPost; i < inputStr.length(); i++) {
+            strPrnt(inputStr, fix + inputStr.charAt(i), i + 1);
+        }
+    }
 
 }
