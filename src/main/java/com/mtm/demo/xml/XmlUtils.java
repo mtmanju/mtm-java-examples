@@ -38,9 +38,12 @@ public class XmlUtils {
     }
 
     /**
+     * {@link #getTransformedXML(String, InputStream)}
+     *
      * @param requestXML
      * @param xslFile
-     * @return transformed XML string
+     * @return String
+     * @throws Exception
      */
     public static String getTransformedXML(String requestXML, InputStream xslFile) throws Exception {
         String transformedXML = StringUtils.EMPTY;
@@ -58,7 +61,7 @@ public class XmlUtils {
     }
 
     /**
-     * This method used to change a particular value at XML element.
+     * {@link #changeValueAtXPATH(String, String, String)} This method used to change a particular value at XML element.
      *
      * @param xmlStr
      * @param xPath
