@@ -50,7 +50,7 @@ public class XmlUtils {
         try {
             StringReader reader = new StringReader(requestXML);
             StringWriter writer = new StringWriter();
-            Transformer transformer = XmlUtils.getTransformerFactoryInstance().newTransformer(new StreamSource(xslFile));
+            Transformer transformer = XmlUtils. getTransformerFactoryInstance().newTransformer(new StreamSource(xslFile));
             transformer.transform(new StreamSource(reader), new StreamResult(writer));
             transformedXML = writer.toString();
         } catch (Exception e) {
