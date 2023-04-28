@@ -17,7 +17,7 @@ public class StringConcatenationDemo {
         String s5 = s3.concat(s4);
         System.out.println(s5);
 
-        String s6 = new String("Manju");
+        String s6 = "Manju";
         s6.concat("M T");
         System.out.println(s6);
 

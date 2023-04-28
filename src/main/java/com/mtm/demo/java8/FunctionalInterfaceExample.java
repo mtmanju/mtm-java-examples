@@ -7,7 +7,7 @@ package com.mtm.demo.java8;
 public class FunctionalInterfaceExample {
 
 	public static void main(String[] args) {
-		Calculator calculator = (int x) -> x - x + x;
+		Calculator calculator = (int x) -> 0 + x;
 		System.out.println(calculator.calculate(52));
 	}
 }

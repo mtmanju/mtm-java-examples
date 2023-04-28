@@ -34,8 +34,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class GenerateData {
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private static final SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 	private static final AtomicInteger AUTO_INCREMENT = new AtomicInteger(0);
 
 	public static void main(String[] args) {
@@ -89,25 +89,25 @@ public class GenerateData {
 
 				String[] applicationTypes = { "C", "B", "P" };
 
-				data.put("APPLICATION_DATE", dateFormat.format(date) + "");
+				data.put("APPLICATION_DATE", dateFormat.format(date));
 				data.put("APPLICATION_TYPE", applicationTypes[random.nextInt(3)]);
 
 				// Customer Details
-				data.put("FULL_NAME", person.getGivenName() + " " + person.getFamilyName() + "");
-				data.put("TITLE", person.getTitle() + "");
-				data.put("FIRST_NAME", person.getGivenName() + "");
-				data.put("MIDDLE_INITIAL", person.getSecondGivenName() + "");
-				data.put("LAST_NAME", person.getFamilyName() + "");
+				data.put("FULL_NAME", person.getGivenName() + " " + person.getFamilyName());
+				data.put("TITLE", person.getTitle());
+				data.put("FIRST_NAME", person.getGivenName());
+				data.put("MIDDLE_INITIAL", person.getSecondGivenName());
+				data.put("LAST_NAME", person.getFamilyName());
 				data.put("SUFFIX", "X");
 
 				// Address Details
-				data.put("ADDRESS_LINE1", address.getHouseNumber() + "");
-				data.put("ADDRESS_LINE2", address.getStreet() + "");
-				data.put("ZIP", address.getPostalCode() + "");
-				data.put("ZIP4", address.getPostalCode() + "");
-				data.put("CITY", address.getCity() + "");
-				data.put("STATE", address.getState() + "");
-				data.put("BIRTH_DT", dateFormat.format(person.getBirthDate()) + "");
+				data.put("ADDRESS_LINE1", address.getHouseNumber());
+				data.put("ADDRESS_LINE2", address.getStreet());
+				data.put("ZIP", address.getPostalCode());
+				data.put("ZIP4", address.getPostalCode());
+				data.put("CITY", String.valueOf(address.getCity()));
+				data.put("STATE", String.valueOf(address.getState()));
+				data.put("BIRTH_DT", dateFormat.format(person.getBirthDate()));
 
 				template.process(data, sw);
 				generatedData = sw.toString();

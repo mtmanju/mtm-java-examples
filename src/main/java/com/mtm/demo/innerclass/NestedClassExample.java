@@ -17,7 +17,7 @@ public class NestedClassExample {
 		}
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		NestedClassExample outer = new NestedClassExample();
 		outer.test();
 

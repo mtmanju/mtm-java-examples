@@ -5,7 +5,7 @@ public class StringCompareDemo {
     public static void main(String[] args) {
         String s1 = "Sachin";
         String s2 = "Sachin";
-        String s3 = new String("Sachin");
+        String s3 = "Sachin";
         String s4 = "Saurav";
 
         // equals()
@@ -34,7 +34,7 @@ public class StringCompareDemo {
         }
 
         // case 2
-        if (str.equals(strBfr.toString())) {
+        if (str.contentEquals(strBfr)) {
             System.out.println("The content is equal");
         } else {
             System.out.println("The content is not equal");

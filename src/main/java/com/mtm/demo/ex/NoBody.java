@@ -2,7 +2,7 @@ package com.mtm.demo.ex;
 
 public class NoBody {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int i, j;
         i = 100;
         j = 200;

@@ -2,7 +2,7 @@ package com.mtm.demo.ex;
 
 public class Stack {
 
-    int stck[] = new int[10];
+    int[] stck = new int[10];
     int tos;
 
     // Initialize top-of-stack

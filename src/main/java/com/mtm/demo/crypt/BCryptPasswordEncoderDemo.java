@@ -1,19 +1,18 @@
 package com.mtm.demo.crypt;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Slf4j
 public class BCryptPasswordEncoderDemo {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		String pwd = "123456";
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String hashedPassword = passwordEncoder.encode(pwd);
-
-		log.info(hashedPassword);
-	}
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String rawPassword = "123456";
+        log.info("Raw password : {}", rawPassword);
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+        log.info("Encoded password : {}", encodedPassword);
+    }
 
 }

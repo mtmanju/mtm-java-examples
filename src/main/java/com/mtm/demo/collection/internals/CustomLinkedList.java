@@ -33,7 +33,7 @@ public class CustomLinkedList<E> {
 		return nodes;
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		CustomLinkedList<Object> list = new CustomLinkedList<>();
 		list.addData(1);
 		list.addData(2);
@@ -53,7 +53,7 @@ class Node<E> {
 	}
 
 	public String toString() {
-		return "" + key;
+		return String.valueOf(key);
 	}
 
 }

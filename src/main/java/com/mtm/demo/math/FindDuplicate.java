@@ -5,14 +5,14 @@ public class FindDuplicate {
 
 	public static void main(String[] args) {
 		FindDuplicate duplicate = new FindDuplicate();
-		int arrayOfNumbers[] = { 1, 2, 3, 1, 3, 6, 6 };
+		int[] arrayOfNumbers = { 1, 2, 3, 1, 3, 6, 6 };
 		int arraySize = arrayOfNumbers.length;
 
 		duplicate.printRepeating(arrayOfNumbers, arraySize);
 	}
 
 	// Function to print duplicates
-	private void printRepeating(int arrayOfNumbers[], int arraySize) {
+	private void printRepeating(int[] arrayOfNumbers, int arraySize) {
 		int i;
 		System.out.println("The repeating elements are : ");
 

@@ -4,7 +4,7 @@ interface Showable {
 
     void show();
 
-    public interface Message {
+    interface Message {
 
         void msg();
     }

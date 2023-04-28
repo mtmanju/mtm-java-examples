@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class FactoryDesignPattern {
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 		GetPlanFactory planFactory = new GetPlanFactory();
 
 		System.out.print("Enter the name of plan { COMMERCIAL or DOMESTIC or INSTITUTIONAL } : ");

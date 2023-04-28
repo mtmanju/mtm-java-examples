@@ -28,7 +28,7 @@ public class ComparableDemo implements Comparable<ComparableDemo> {
 		}
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 
 		ArrayList<ComparableDemo> list = new ArrayList<ComparableDemo>();
 		list.add(new ComparableDemo(101, "Vijay", 23));
@@ -38,7 +38,7 @@ public class ComparableDemo implements Comparable<ComparableDemo> {
 		Collections.sort(list);
 		Iterator<ComparableDemo> itr = list.iterator();
 		while (itr.hasNext()) {
-			ComparableDemo cd = (ComparableDemo) itr.next();
+			ComparableDemo cd = itr.next();
 			System.out.println(cd.rollno + "\t" + cd.name + "\t" + cd.age);
 		}
 	}

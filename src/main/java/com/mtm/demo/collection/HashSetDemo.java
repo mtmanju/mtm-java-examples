@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class HashSetDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         HashSet<Integer> set = new HashSet<Integer>();
         set.add(5);
         set.add(4);

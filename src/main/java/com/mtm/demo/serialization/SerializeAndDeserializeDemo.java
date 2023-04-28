@@ -28,7 +28,7 @@ class Employee implements Serializable {
 
 public class SerializeAndDeserializeDemo {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         Employee s1 = new Employee(176664, "Manjunath", 25);
 
         // Serialize

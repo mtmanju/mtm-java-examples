@@ -2,7 +2,7 @@ package com.mtm.demo.inheritance;
 
 public class BoxRefTest {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         BoxWeight weightbox = new BoxWeight(3, 5, 7, 8.37);
         Box plainbox = new Box();
         double vol;

@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 class WorkerThread extends Thread implements Runnable {
 
-    private String message;
+    private final String message;
 
     public WorkerThread(String s) {
         this.message = s;
@@ -32,7 +32,7 @@ public class SimpleThreadPool {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 5; i++) {
-            Runnable worker = new WorkerThread("" + i);
+            Runnable worker = new WorkerThread(String.valueOf(i));
             executor.execute(worker);
         }
         executor.shutdown();

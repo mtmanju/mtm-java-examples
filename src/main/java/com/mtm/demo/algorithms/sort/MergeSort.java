@@ -22,12 +22,8 @@ public class MergeSort {
 		int[] leftArray = new int[mid];
 		int[] rightArray = new int[arrayLength - mid];
 
-		for (int i = 0; i < mid; i++) {
-			leftArray[i] = arrayOfNumbers[i];
-		}
-		for (int i = mid; i < arrayLength; i++) {
-			rightArray[i - mid] = arrayOfNumbers[i];
-		}
+        System.arraycopy(arrayOfNumbers, 0, leftArray, 0, mid);
+        if (arrayLength - mid >= 0) System.arraycopy(arrayOfNumbers, mid, rightArray, mid - mid, arrayLength - mid);
 		mergeSort(leftArray, mid);
 		mergeSort(rightArray, arrayLength - mid);
 

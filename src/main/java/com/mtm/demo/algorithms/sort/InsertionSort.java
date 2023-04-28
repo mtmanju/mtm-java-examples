@@ -11,7 +11,7 @@ public class InsertionSort {
 			System.out.println(number);
 		}
 		System.out.println("<-- Insertion Sort Imperative");
-		System.out.println("");
+		System.out.println();
 
 		// 2nd Way
 		Integer[] arrayOfNumbersForRecursive = { 7, 5, 1, 6, 2, 3, 4 };

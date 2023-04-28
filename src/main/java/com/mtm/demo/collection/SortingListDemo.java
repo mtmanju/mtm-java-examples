@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class SortingListDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         // Example 1 (Sorting the elements of List that contains string objects)
         ArrayList<String> aList1 = new ArrayList<String>();

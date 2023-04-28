@@ -2,7 +2,7 @@ package com.mtm.demo.ex.test;
 
 class BlockTest {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int x, y;
         y = 20;
         // the target of this loop is a block

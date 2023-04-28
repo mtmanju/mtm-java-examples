@@ -22,7 +22,7 @@ public class Superhero {
 	}
 
 	interface SuperHeroFactory {
-		public Superhero getSuperhero(String power);
+		Superhero getSuperhero(String power);
 	}
 
 	class JusticeLeagueFactory implements SuperHeroFactory {

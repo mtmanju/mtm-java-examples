@@ -48,7 +48,7 @@ public class PalindromeExample {
 		for (int i = originalStr.length() - 1; i >= 0; i--) {
 			reversedStr = reversedStr + originalStr.charAt(i);
 		}
-		return originalStr.equals(reversedStr) ? true : false;
+		return originalStr.equals(reversedStr);
 	}
 
 	public static void printResult(boolean isPalindrome, String originalStr) {

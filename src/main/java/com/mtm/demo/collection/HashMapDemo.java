@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class HashMapDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         // HashMap maintains no order.
         // HashMap can contain one null key and multiple null values.

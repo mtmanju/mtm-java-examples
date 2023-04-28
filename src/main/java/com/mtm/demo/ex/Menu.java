@@ -2,7 +2,7 @@ package com.mtm.demo.ex;
 
 public class Menu {
 
-    public static void main(String args[]) throws java.io.IOException {
+    public static void main(String[] args) throws java.io.IOException {
         char choice;
         do {
             System.out.println("Help on:");

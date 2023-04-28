@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RemoveAllDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         ArrayList<String> al = new ArrayList<String>();
         al.add("Ravi");

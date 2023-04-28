@@ -2,7 +2,7 @@ package com.mtm.demo.threads;
 
 public class Downloader extends Thread {
 
-	private String url;
+	private final String url;
 
 	Downloader(String url) {
 		this.url = url;

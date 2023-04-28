@@ -18,7 +18,7 @@ class Student {
 
 public class SimpleDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         Student s1 = new Student(101, "Sonoo", 23);
         Student s2 = new Student(102, "Ravi", 21);
@@ -31,7 +31,7 @@ public class SimpleDemo {
 
         Iterator<Student> itr = alist.iterator();
         while (itr.hasNext()) {
-            Student st = (Student) itr.next();
+            Student st = itr.next();
             System.out.println(st.rollno + " " + st.name + " " + st.age);
         }
     }

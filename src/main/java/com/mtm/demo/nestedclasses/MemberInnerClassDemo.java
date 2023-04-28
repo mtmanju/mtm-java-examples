@@ -2,7 +2,7 @@ package com.mtm.demo.nestedclasses;
 
 public class MemberInnerClassDemo {
 
-    private int data = 30;
+    private final int data = 30;
 
     class Inner {
 

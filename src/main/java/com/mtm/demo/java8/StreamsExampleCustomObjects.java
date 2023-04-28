@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 class StreamsExampleCustomObjects {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 
 		// Case 1: Without filtering
 		Stream.of(Employee.builder().id(1001).name("Manju").salary(10000L).build(),

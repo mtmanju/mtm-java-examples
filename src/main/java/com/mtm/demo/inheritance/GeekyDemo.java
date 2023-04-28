@@ -4,7 +4,7 @@ class SuperGeek {
 
     public final int iqLevel = 100;
     public String[] degrees = { "M.S", "Ph.D." };
-    private String str = "Some other property.";
+    private final String str = "Some other property.";
 
     public void talkGeekyCrap() {
         System.out.println(str);
@@ -19,7 +19,7 @@ class SheldonCooper extends SuperGeek {
     /**
      * Sheldon�s private friends, won�t be shared with any class extending SheldonCooper
      * */
-    private String[] friends = { "Leonard", "Rajesh", "Howard", "Penny" };
+    private final String[] friends = { "Leonard", "Rajesh", "Howard", "Penny" };
 
     @SuppressWarnings("unused")
     private void buildRocket() {

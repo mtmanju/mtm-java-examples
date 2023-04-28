@@ -28,7 +28,7 @@ public final class FileUtils {
 		log.info("getFileContent() --> ");
 		try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
 				BufferedReader bufReader = new BufferedReader(
-						new InputStreamReader(inputStream, StandardCharsets.UTF_8));) {
+						new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
 
 			StringBuilder strBuilder = new StringBuilder();
 			String line = bufReader.readLine();

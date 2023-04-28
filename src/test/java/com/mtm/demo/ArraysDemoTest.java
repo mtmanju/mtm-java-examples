@@ -51,8 +51,8 @@ public class ArraysDemoTest {
 		int[] arr2 = { 1, 2, 3 };
 		int[] arr3 = { 4, 5, 6 };
 
-		Assert.assertEquals(true, Arrays.equals(arr1, arr2));
-		Assert.assertEquals(false, Arrays.equals(arr1, arr3));
+        Assert.assertTrue(Arrays.equals(arr1, arr2));
+        Assert.assertFalse(Arrays.equals(arr1, arr3));
 
 	}
 

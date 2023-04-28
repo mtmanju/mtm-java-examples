@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Heap<E extends Comparable<E>> {
 
-	private List<E> elements = new ArrayList<>();
+	private final List<E> elements = new ArrayList<>();
 
 	public static <E extends Comparable<E>> List<E> sort(Iterable<E> elements) {
 		Heap<E> heap = of(elements);

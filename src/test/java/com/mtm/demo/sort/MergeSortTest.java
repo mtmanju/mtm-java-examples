@@ -20,7 +20,7 @@ public class MergeSortTest {
 		}
 	}
 
-	public void sort(int inputArr[]) {
+	public void sort(int[] inputArr) {
 		this.array = inputArr;
 		this.length = inputArr.length;
 		this.tempMergArr = new int[length];
@@ -42,9 +42,8 @@ public class MergeSortTest {
 
 	private void mergeParts(int lowerIndex, int middle, int higherIndex) {
 
-		for (int i = lowerIndex; i <= higherIndex; i++) {
-			tempMergArr[i] = array[i];
-		}
+        if (higherIndex + 1 - lowerIndex >= 0)
+            System.arraycopy(array, lowerIndex, tempMergArr, lowerIndex, higherIndex + 1 - lowerIndex);
 		int i = lowerIndex;
 		int j = middle + 1;
 		int k = lowerIndex;

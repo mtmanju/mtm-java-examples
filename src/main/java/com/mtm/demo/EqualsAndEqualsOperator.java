@@ -5,8 +5,8 @@ public class EqualsAndEqualsOperator {
 	public static void main(String[] args) {
 		String str1 = "Manjunath";
 		String str2 = "Manjunath";
-		String newString1 = new String("Manjunath");
-		String newString2 = new String("Manjunath");
+		String newString1 = "Manjunath";
+		String newString2 = "Manjunath";
 
 		System.out.println(str1.equals(str2));
 		System.out.println(str1.equals(newString1));

@@ -17,7 +17,7 @@ public class ToStringDemo {
 
         // un-comment toString() and test
         System.out.println(tsd);
-        System.out.println(tsd.toString());
+        System.out.println(tsd);
 
     }
 

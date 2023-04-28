@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonTreeModelExample {
 
-	public static void main(String a[]) throws IOException {
+	public static void main(String[] a) throws IOException {
 		try (InputStream inputStream = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream("sample.json");) {
+				.getResourceAsStream("sample.json")) {
 			JsonNode rootNode = new ObjectMapper().readTree(inputStream);
 
 			System.out.println("Employee Id: " + rootNode.path("emp_id").asInt());

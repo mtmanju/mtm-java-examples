@@ -2,7 +2,7 @@ package com.mtm.demo.math;
 
 class ReverseNumber {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		int input = 5642, copyInput = input;
 		int reverse = 0;
 

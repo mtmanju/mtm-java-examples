@@ -46,7 +46,7 @@ public class PDF2ImageExample {
 	}
 
 	private static void generatePDFFromImage(String filename, String extension)
-			throws IOException, BadElementException, DocumentException {
+			throws IOException, DocumentException {
 		Document document = new Document();
 		String input = filename + "." + extension;
 		String output = "src/output/" + extension + ".pdf";

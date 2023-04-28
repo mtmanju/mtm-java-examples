@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class JoinThreadDemo {
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println(Thread.currentThread().getName() + " is Started");
 

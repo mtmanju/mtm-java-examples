@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class Coder {
 
-	private String language;
+	private final String language;
 
 	public Coder(String language) {
 		this.language = language;
@@ -14,11 +14,7 @@ public class Coder {
 
 	public boolean equals(Object obj) {
 		Coder coder = (Coder) obj;
-		if (coder.language.equals(language)) {
-			return true;
-		} else {
-			return false;
-		}
+		return coder.language.equals(language);
 	}
 
 	public int hashCode() {

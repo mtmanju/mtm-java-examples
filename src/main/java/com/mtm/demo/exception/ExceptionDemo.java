@@ -13,7 +13,7 @@ public class ExceptionDemo {
             }
 
             try {
-                int a[] = new int[5];
+                int[] a = new int[5];
                 a[5] = 4;
 
             } catch (Exception e) {

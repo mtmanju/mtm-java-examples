@@ -6,7 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class Password {
 	// Define the BCrypt workload to use when generating password hashes. 10-31
 	// is a valid value.
-	private static int workload = 12;
+	private static final int workload = 12;
 
 	/**
 	 * This method can be used to generate a string representing an account password

@@ -30,7 +30,7 @@ public class InstanceOfDemo extends Animal {
         Dog.method(aCat);
         
         Dog d = (Dog) new Animal(); // Will throw class cast exception
-		d.method(aCat);
+		Dog.method(aCat);
     }
 
 }

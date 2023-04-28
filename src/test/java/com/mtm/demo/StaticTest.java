@@ -4,7 +4,7 @@ public class StaticTest {
 
     /** A static variable */
     @SuppressWarnings("unused")
-    private static int num;
+    private static final int num;
 
     /** A static block */
     static {

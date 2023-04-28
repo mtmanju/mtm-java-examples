@@ -62,7 +62,7 @@ class NameComparator implements Comparator<Object> {
 
 public class ComparatorDemo {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 
 		ArrayList<Students> al = new ArrayList<Students>();
 		al.add(new Students(101, "Vijay", 23));
@@ -75,7 +75,7 @@ public class ComparatorDemo {
 		Collections.sort(al, new NameComparator());
 		Iterator<Students> itr = al.iterator();
 		while (itr.hasNext()) {
-			Students st = (Students) itr.next();
+			Students st = itr.next();
 			System.out.println(st.rollno + "\t" + st.name + "\t" + st.age);
 		}
 
@@ -86,7 +86,7 @@ public class ComparatorDemo {
 		Collections.sort(al, new AgeComparator());
 		Iterator<Students> itr2 = al.iterator();
 		while (itr2.hasNext()) {
-			Students st = (Students) itr2.next();
+			Students st = itr2.next();
 			System.out.println(st.rollno + "\t" + st.name + "\t" + st.age);
 		}
 
@@ -97,7 +97,7 @@ public class ComparatorDemo {
 		Collections.sort(al, new RollNoComparator());
 		Iterator<Students> itr3 = al.iterator();
 		while (itr3.hasNext()) {
-			Students st = (Students) itr3.next();
+			Students st = itr3.next();
 			System.out.println(st.rollno + "\t" + st.name + "\t" + st.age);
 		}
 	}

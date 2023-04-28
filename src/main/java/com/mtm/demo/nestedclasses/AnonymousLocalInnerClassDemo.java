@@ -2,7 +2,7 @@ package com.mtm.demo.nestedclasses;
 
 public class AnonymousLocalInnerClassDemo {
 
-    private int data = 30;// instance variable
+    private final int data = 30;// instance variable
 
     void display() {
         class Local {
@@ -15,7 +15,7 @@ public class AnonymousLocalInnerClassDemo {
         l.msg();
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         AnonymousLocalInnerClassDemo obj = new AnonymousLocalInnerClassDemo();
         obj.display();
     }

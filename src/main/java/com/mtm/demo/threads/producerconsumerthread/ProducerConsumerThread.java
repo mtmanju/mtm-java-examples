@@ -22,7 +22,7 @@ public class ProducerConsumerThread {
 		}
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		ProducerConsumerThread pcThread = new ProducerConsumerThread();
 		Thread oddNumThread = new Thread(pcThread.new OddNumber(), "ODD");
 		oddNumThread.start();
@@ -37,7 +37,7 @@ class SharedResource {
 	public static boolean oddFlag = false;
 
 	public synchronized void oddNumber(int number) {
-		if (oddFlag == true) {
+		if (oddFlag) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
@@ -50,7 +50,7 @@ class SharedResource {
 	}
 
 	public synchronized void evenNumber(int number) {
-		if (oddFlag == false) {
+		if (!oddFlag) {
 			try {
 				wait();
 			} catch (InterruptedException e) {

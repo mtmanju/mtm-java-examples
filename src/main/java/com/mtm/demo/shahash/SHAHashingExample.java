@@ -18,7 +18,7 @@ public class SHAHashingExample {
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
 		md.update(password.getBytes());
 
-		byte byteData[] = md.digest();
+		byte[] byteData = md.digest();
 
 		// convert the byte to hex format method 1
 		StringBuffer sb = new StringBuffer();
