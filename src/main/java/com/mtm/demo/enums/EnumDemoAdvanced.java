@@ -1,9 +1,8 @@
 package com.mtm.demo.enums;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.apache.commons.lang3.StringUtils;
 
 public enum EnumDemoAdvanced {
 	REST("Rest"), SOAP("Soap"), ALL("All");

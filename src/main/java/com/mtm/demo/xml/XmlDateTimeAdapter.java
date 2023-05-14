@@ -1,10 +1,11 @@
 package com.mtm.demo.xml;
 
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
  * @author ManjunathMT

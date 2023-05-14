@@ -1,9 +1,8 @@
 package com.mtm.demo;
 
+import com.mtm.demo.designpattern.Singleton;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.mtm.demo.designpattern.Singleton;
 
 public class DesignPatternTest {
 

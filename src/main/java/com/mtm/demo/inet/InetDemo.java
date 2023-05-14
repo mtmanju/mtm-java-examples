@@ -1,10 +1,8 @@
 package com.mtm.demo.inet;
 
-import java.net.InetAddress;
-
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.net.InetAddress;
 
 @Slf4j
 public class InetDemo {

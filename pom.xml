@@ -21,13 +21,13 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<pdf2dom.version>1.8</pdf2dom.version>
-		<itextpdf.version>5.5.10</itextpdf.version>
+        <itextpdf.version>5.5.13.3</itextpdf.version>
 		<pdfbox-tools.version>2.0.3</pdfbox-tools.version>
 		<poi-ooxml.version>3.15</poi-ooxml.version>
 		<xmlworker.version>5.5.10</xmlworker.version>
-		<poi-scratchpad.version>3.15</poi-scratchpad.version>
+        <poi-scratchpad.version>5.2.3</poi-scratchpad.version>
 		<apache-commons.version>3.6.1</apache-commons.version>
 		<jbcrypt.version>0.4</jbcrypt.version>
 		<batik-transcoder.version>1.8</batik-transcoder.version>
@@ -77,6 +77,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+            <version>1.18.26</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -127,18 +128,29 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-scratchpad</artifactId>
 			<version>${poi-scratchpad.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.xmlgraphics</groupId>
-			<artifactId>batik-transcoder</artifactId>
-			<version>${batik-transcoder.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>${poi-ooxml.version}</version>
-		</dependency>
-	</dependencies>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-transcoder</artifactId>
+            <version>${batik-transcoder.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-ooxml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.0</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<finalName>mtm-java-tutorials</finalName>

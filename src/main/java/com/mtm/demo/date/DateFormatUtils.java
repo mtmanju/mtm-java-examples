@@ -1,10 +1,10 @@
 package com.mtm.demo.date;
 
+import org.apache.commons.lang3.time.DateUtils;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.commons.lang3.time.DateUtils;
 
 /**
  * @author ManjunathMT

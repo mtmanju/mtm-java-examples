@@ -1,10 +1,10 @@
 package com.mtm.demo.xml;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
+
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
  * @author ManjunathMT
- *
  */
 public final class XmlTypeAdapter extends XmlAdapter<Object, Object> {
 

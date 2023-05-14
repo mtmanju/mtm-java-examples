@@ -20,7 +20,7 @@ public class ConvertByteArrayToString {
 
 		// This actually converts the bytes to String
 		String bytesAsString = new String(bytes, StandardCharsets.UTF_8);
-		System.out.println("Text Decryted : " + bytesAsString);
+		System.out.println("Text Decrypted : " + bytesAsString);
 
 	}
 }

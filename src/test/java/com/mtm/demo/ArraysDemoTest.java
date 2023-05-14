@@ -1,13 +1,13 @@
 package com.mtm.demo;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -15,9 +15,9 @@ public class ArraysDemoTest {
 
 	@Test
 	public void arraySort() {
-		String[] array = { "ABC", "XYZ", "PQR" };
+		String[] array = {"ABC", "XYZ", "PQR"};
 		Arrays.sort(array);
-		Assert.assertArrayEquals(new String[] { "ABC", "PQR", "XYZ" }, array);
+		Assert.assertArrayEquals(new String[]{"ABC", "PQR", "XYZ"}, array);
 	}
 
 	@Test

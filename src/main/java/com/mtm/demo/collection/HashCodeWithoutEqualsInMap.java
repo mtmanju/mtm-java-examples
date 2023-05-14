@@ -1,10 +1,10 @@
 package com.mtm.demo.collection;
 
+import lombok.AllArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import lombok.AllArgsConstructor;
 
 public class HashCodeWithoutEqualsInMap {
 

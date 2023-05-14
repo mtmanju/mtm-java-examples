@@ -1,6 +1,6 @@
 package com.mtm.demo.i18n;
 
-import java.util.*;
+import java.util.Locale;
 
 public class I18NDemo {
 

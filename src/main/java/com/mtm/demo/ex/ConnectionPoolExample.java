@@ -1,11 +1,10 @@
 package com.mtm.demo.ex;
 
-import java.util.Hashtable;
-
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+import java.util.Hashtable;
 
 /**
  * Demonstrates how to enable connection pooling. Use debug option to observe connection usage.

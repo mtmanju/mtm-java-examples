@@ -1,21 +1,14 @@
 package com.mtm.demo.pdf;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.fit.pdfdom.PDFDomTree;
-
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.fit.pdfdom.PDFDomTree;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
 
 public class PDF2HTMLExample {
 

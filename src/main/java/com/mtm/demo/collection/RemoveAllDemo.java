@@ -1,6 +1,7 @@
 package com.mtm.demo.collection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class RemoveAllDemo {
 

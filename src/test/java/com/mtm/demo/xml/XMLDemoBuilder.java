@@ -1,23 +1,18 @@
 package com.mtm.demo.xml;
 
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.junit.Test;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class XMLDemoBuilder {
 

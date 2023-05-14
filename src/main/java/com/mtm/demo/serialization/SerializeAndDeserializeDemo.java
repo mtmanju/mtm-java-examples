@@ -1,10 +1,6 @@
 package com.mtm.demo.serialization;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 // 1. Only objects that support java.io.Serializable interface can be written to streams.
 // 2. All wrapper class and String implements java.io.Serializable interface

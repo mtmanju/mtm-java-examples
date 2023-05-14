@@ -1,11 +1,11 @@
 package com.mtm.demo.java8;
 
-import java.util.stream.Stream;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.stream.Stream;
 
 class StreamsExampleCustomObjects {
 
@@ -15,7 +15,7 @@ class StreamsExampleCustomObjects {
 		Stream.of(Employee.builder().id(1001).name("Manju").salary(10000L).build(),
 				Employee.builder().id(1002).name("Smita").salary(20000L).build(),
 				Employee.builder().id(1003).name("Kaustav").salary(30000L).build()).forEach(employee -> {
-					System.out.println(employee);
+			System.out.println(employee);
 				});
 
 		// Case 2: With filtering

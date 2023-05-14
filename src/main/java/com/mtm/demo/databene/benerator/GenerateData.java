@@ -1,26 +1,8 @@
 package com.mtm.demo.databene.benerator;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.StringWriter;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
-
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import lombok.extern.slf4j.Slf4j;
 import org.databene.benerator.engine.DefaultBeneratorContext;
 import org.databene.benerator.primitive.datetime.DateTimeGenerator;
 import org.databene.domain.address.Address;
@@ -28,9 +10,15 @@ import org.databene.domain.address.AddressGenerator;
 import org.databene.domain.person.Person;
 import org.databene.domain.person.PersonGenerator;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import lombok.extern.slf4j.Slf4j;
+import java.io.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 public class GenerateData {

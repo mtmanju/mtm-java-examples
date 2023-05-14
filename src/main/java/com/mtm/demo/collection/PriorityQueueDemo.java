@@ -1,6 +1,8 @@
 package com.mtm.demo.collection;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class PriorityQueueDemo {
 

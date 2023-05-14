@@ -1,17 +1,16 @@
 package com.mtm.demo.pdf;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
+import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
+import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 import org.apache.poi.xwpf.usermodel.BreakType;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
-import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
-import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class PDF2WordExample {
 
