@@ -8,20 +8,20 @@ import java.util.Date;
 
 
 public class XmlDateAdapter extends XmlAdapter<String, Date> {
-	private static final String DATE_FORMAT = "yyyy-MM-dd";
-	private final DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
+    private final DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
-	public XmlDateAdapter() {
-		dateFormat.setLenient(false);
-	}
+    public XmlDateAdapter() {
+        dateFormat.setLenient(false);
+    }
 
-	@Override
-	public Date unmarshal(String xml) throws Exception {
-		return dateFormat.parse(xml);
-	}
+    @Override
+    public Date unmarshal(String xml) throws Exception {
+        return dateFormat.parse(xml);
+    }
 
-	@Override
-	public String marshal(Date object) throws Exception {
-		return dateFormat.format(object);
-	}
+    @Override
+    public String marshal(Date object) throws Exception {
+        return dateFormat.format(object);
+    }
 }

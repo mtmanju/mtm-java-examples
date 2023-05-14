@@ -6,9 +6,9 @@ import org.junit.Test;
 
 public class DesignPatternTest {
 
-	@Test
-	public void testGetInstance() throws InstantiationException, IllegalAccessException {
-		Singleton s = Singleton.getInstance();
-		Assert.assertNotNull(s);
-	}
+    @Test
+    public void testGetInstance() throws InstantiationException, IllegalAccessException {
+        Singleton s = Singleton.getInstance();
+        Assert.assertNotNull(s);
+    }
 }

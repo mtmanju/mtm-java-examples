@@ -1,60 +1,60 @@
 package com.mtm.demo.datastructures.queue;
 
 public class Queue {
-	private Item front;
-	private Item rear;
+    private Item front;
+    private Item rear;
 
-	public void enqueue(int data) {
-		if (rear == null) {
-			front = rear = new Item(data);
-		} else {
-			Item item = new Item(data);
-			front.next = item;
-			front = item;
-		}
-	}
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.printQueue();
+        q.enqueue(5);
+        q.enqueue(10);
+        q.enqueue(15);
+        q.enqueue(20);
+        q.printQueue();
+        q.dequeue();
+        q.dequeue();
+        q.printQueue();
+    }
 
-	public int dequeue() {
-		int data = rear.data;
-		rear = rear.next;
-		return data;
-	}
+    public void enqueue(int data) {
+        if (rear == null) {
+            front = rear = new Item(data);
+        } else {
+            Item item = new Item(data);
+            front.next = item;
+            front = item;
+        }
+    }
 
-	public void printQueue() {
-		if (rear == null) {
-			System.out.println("Stack is empty!");
-		}
+    public int dequeue() {
+        int data = rear.data;
+        rear = rear.next;
+        return data;
+    }
 
-		Item temp = rear;
-		System.out.println("REAR");
+    public void printQueue() {
+        if (rear == null) {
+            System.out.println("Stack is empty!");
+        }
 
-		while (temp != null) {
-			System.out.println("<" + temp.data);
-			temp = temp.next;
-		}
+        Item temp = rear;
+        System.out.println("REAR");
 
-		System.out.println("<FRONT");
-	}
+        while (temp != null) {
+            System.out.println("<" + temp.data);
+            temp = temp.next;
+        }
 
-	public static void main(String[] args) {
-		Queue q = new Queue();
-		q.printQueue();
-		q.enqueue(5);
-		q.enqueue(10);
-		q.enqueue(15);
-		q.enqueue(20);
-		q.printQueue();
-		q.dequeue();
-		q.dequeue();
-		q.printQueue();
-	}
+        System.out.println("<FRONT");
+    }
 }
 
 class Item {
-	int data;
-	Item next;
+    int data;
+    Item next;
 
-	public Item(int data) {
-		this.data = data;
-	}
+    public Item(int data) {
+        this.data = data;
+    }
 }

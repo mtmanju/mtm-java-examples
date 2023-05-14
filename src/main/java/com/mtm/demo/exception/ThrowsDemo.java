@@ -4,25 +4,25 @@ import java.io.IOException;
 
 public class ThrowsDemo {
 
-	public static void main(String[] args) {
-		ThrowsDemo td = new ThrowsDemo();
-		ThrowsDemo.Inner inner = td.new Inner();
-		try {
-			inner.method();
-		} catch (IOException e) {
-			try {
-				throw new IOException("Device error");
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
-	}
+    public static void main(String[] args) {
+        ThrowsDemo td = new ThrowsDemo();
+        ThrowsDemo.Inner inner = td.new Inner();
+        try {
+            inner.method();
+        } catch (IOException e) {
+            try {
+                throw new IOException("Device error");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
 
-	class Inner {
+    class Inner {
 
-		void method() throws IOException {
-			throw new IOException("Device error");
-		}
-	}
+        void method() throws IOException {
+            throw new IOException("Device error");
+        }
+    }
 
 }

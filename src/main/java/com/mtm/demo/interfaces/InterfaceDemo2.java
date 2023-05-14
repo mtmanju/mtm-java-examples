@@ -1,9 +1,9 @@
 package com.mtm.demo.interfaces;
 
-public interface InterfaceDemo2  {
+public interface InterfaceDemo2 {
 
     void show();
-    
+
     void print();
 
 //    class A {

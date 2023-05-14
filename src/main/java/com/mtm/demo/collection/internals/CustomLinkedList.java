@@ -5,55 +5,54 @@ import java.util.List;
 
 /**
  * @author Manjunath M T
- *
  */
 public class CustomLinkedList<E> {
-	Node<E> root;
+    Node<E> root;
 
-	public void addData(E key) {
-		Node<E> newNode = new Node<>(key);
-		if (null == root) {
-			root = newNode;
-		} else {
-			Node<E> currentNode = root;
-			while (null != currentNode.next) {
-				currentNode = currentNode.next;
-			}
-			currentNode.next = newNode;
-		}
-	}
+    public static void main(String[] args) {
+        CustomLinkedList<Object> list = new CustomLinkedList<>();
+        list.addData(1);
+        list.addData(2);
+        list.addData("3");
+        list.addData("Hello");
 
-	public List<Node<E>> getData() {
-		List<Node<E>> nodes = new ArrayList<>();
-		while (null != root.next) {
-			nodes.add(root);
-			root = root.next;
-		}
-		nodes.add(root);
-		return nodes;
-	}
+        System.out.println("Items:\t" + list.getData());
+    }
 
-	public static void main(String[] args) {
-		CustomLinkedList<Object> list = new CustomLinkedList<>();
-		list.addData(1);
-		list.addData(2);
-		list.addData("3");
-		list.addData("Hello");
+    public void addData(E key) {
+        Node<E> newNode = new Node<>(key);
+        if (null == root) {
+            root = newNode;
+        } else {
+            Node<E> currentNode = root;
+            while (null != currentNode.next) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = newNode;
+        }
+    }
 
-		System.out.println("Items:\t" + list.getData());
-	}
+    public List<Node<E>> getData() {
+        List<Node<E>> nodes = new ArrayList<>();
+        while (null != root.next) {
+            nodes.add(root);
+            root = root.next;
+        }
+        nodes.add(root);
+        return nodes;
+    }
 }
 
 class Node<E> {
-	E key;
-	Node<E> next;
+    E key;
+    Node<E> next;
 
-	public Node(E key) {
-		this.key = key;
-	}
+    public Node(E key) {
+        this.key = key;
+    }
 
-	public String toString() {
-		return String.valueOf(key);
-	}
+    public String toString() {
+        return String.valueOf(key);
+    }
 
 }

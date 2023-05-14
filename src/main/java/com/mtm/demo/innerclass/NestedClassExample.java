@@ -2,27 +2,27 @@ package com.mtm.demo.innerclass;
 
 public class NestedClassExample {
 
-	int outer_x = 100;
+    int outer_x = 100;
 
-	public void test() {
-		Inner inner = new Inner();
-		inner.display();
-	}
+    public static void main(String[] args) {
+        NestedClassExample outer = new NestedClassExample();
+        outer.test();
 
-	// this is an inner class
-	public class Inner {
+        Inner inner = outer.new Inner();
+        inner.display();
+    }
 
-		public void display() {
-			System.out.println("display: outer_x = " + outer_x);
-		}
-	}
+    public void test() {
+        Inner inner = new Inner();
+        inner.display();
+    }
 
-	public static void main(String[] args) {
-		NestedClassExample outer = new NestedClassExample();
-		outer.test();
+    // this is an inner class
+    public class Inner {
 
-		Inner inner = outer.new Inner();
-		inner.display();
-	}
+        public void display() {
+            System.out.println("display: outer_x = " + outer_x);
+        }
+    }
 
 }

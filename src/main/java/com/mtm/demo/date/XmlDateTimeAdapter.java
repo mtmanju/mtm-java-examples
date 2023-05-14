@@ -8,21 +8,21 @@ import java.util.Date;
 
 
 public class XmlDateTimeAdapter extends XmlAdapter<String, Date> {
-	
-	private static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
-	private final DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
-	public XmlDateTimeAdapter() {
-		dateFormat.setLenient(false);
-	}
+    private static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+    private final DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
-	@Override
-	public Date unmarshal(String xml) throws Exception {
-		return dateFormat.parse(xml);
-	}
+    public XmlDateTimeAdapter() {
+        dateFormat.setLenient(false);
+    }
 
-	@Override
-	public String marshal(Date object) throws Exception {
-		return dateFormat.format(object);
-	}
+    @Override
+    public Date unmarshal(String xml) throws Exception {
+        return dateFormat.parse(xml);
+    }
+
+    @Override
+    public String marshal(Date object) throws Exception {
+        return dateFormat.format(object);
+    }
 }

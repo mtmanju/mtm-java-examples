@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Controller {
 
-	public void displayMovies() {
+    public void displayMovies() {
         Model model = new Model();
         View view = new View();
 

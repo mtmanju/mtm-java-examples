@@ -2,6 +2,12 @@ package com.mtm.demo.ex;
 
 public class Demos {
 
+    public static void main(String[] args) {
+        Demos cbc = new Demos();
+        System.out.println("Order:" + cbc.getListItemClassName(4, 6));
+
+    }
+
     public String getListItemClassName(int index, int size) {
         String result = null;
         if (index % 4 == 0 && (index == size - 1)) {
@@ -12,12 +18,6 @@ public class Demos {
             result = "last";
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        Demos cbc = new Demos();
-        System.out.println("Order:" + cbc.getListItemClassName(4, 6));
-
     }
 
 }

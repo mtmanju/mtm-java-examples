@@ -4,6 +4,11 @@ public class ProducerThread implements Runnable {
 
     Resource resource;
 
+    public ProducerThread(Resource resource) {
+        this.resource = resource;
+        new Thread(this).start();
+    }
+
     public void run() {
         for (int i = 0; i < 50; i++) {
             try {
@@ -11,10 +16,5 @@ public class ProducerThread implements Runnable {
             } catch (InterruptedException e) {
             }
         }
-    }
-
-    public ProducerThread(Resource resource) {
-        this.resource = resource;
-        new Thread(this).start();
     }
 }

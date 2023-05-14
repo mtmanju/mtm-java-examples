@@ -1,4 +1,3 @@
-
 package com.mtm.demo.threads.producerconsumer;
 
 public class Resource {
@@ -6,7 +5,9 @@ public class Resource {
     private Boolean isProduced = false;
     private String data = "EMPTY";
 
-    /** Put method : puts only if is not already produced **/
+    /**
+     * Put method : puts only if is not already produced
+     **/
     public synchronized void put(String data) throws InterruptedException {
         if (isProduced) {
             wait(); // Not Consumed Yet,Wait for consumer's signal.
@@ -18,7 +19,9 @@ public class Resource {
         }
     }
 
-    /** Get method : gets only if it has been produced **/
+    /**
+     * Get method : gets only if it has been produced
+     **/
     public synchronized String get() throws InterruptedException {
         if (!isProduced) {
             wait(); // Not produced yet,wait for producer's signal.

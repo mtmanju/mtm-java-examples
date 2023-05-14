@@ -5,40 +5,40 @@ import org.junit.Test;
 
 public class AbstractClassTest {
 
-	abstract class Animal {
-		private String name;
+    @Test
+    public void testCreation() {
+        Dog dog = new Dog("Tommy");
+        Assert.assertEquals("BOW BOW", dog.bark());
+        Assert.assertEquals("Tommy", dog.getName());
 
-		/*
-		 * Animal(String name) { this.setName(name); }
-		 */
+    }
 
-		abstract String bark();
+    abstract class Animal {
+        private String name;
 
-		public String getName() {
-			return name;
-		}
+        /*
+         * Animal(String name) { this.setName(name); }
+         */
 
-		public void setName(String name) {
-			this.name = name;
-		}
-	}
+        abstract String bark();
 
-	class Dog extends Animal {
-		Dog(String name) {
-			// super(name);
-		}
+        public String getName() {
+            return name;
+        }
 
-		@Override
-		String bark() {
-			return "BOW BOW";
-		}
-	}
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 
-	@Test
-	public void testCreation() {
-		Dog dog = new Dog("Tommy");
-		Assert.assertEquals("BOW BOW", dog.bark());
-		Assert.assertEquals("Tommy", dog.getName());
+    class Dog extends Animal {
+        Dog(String name) {
+            // super(name);
+        }
 
-	}
+        @Override
+        String bark() {
+            return "BOW BOW";
+        }
+    }
 }

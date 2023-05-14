@@ -2,63 +2,63 @@ package com.mtm.demo.datastructures.linkedlist;
 
 public class LinkedList {
 
-	private Node root;
+    private Node root;
 
-	public void addAtEnd(int data) {
-		if (root == null) {
-			root = new Node(data);
-			return;
-		}
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.printList();
+        list.addAtEnd(10);
+        list.printList();
+        list.addAtStart(20);
+        list.printList();
+        list.removeFromStart();
+        list.printList();
+    }
 
-		Node temp = root;
-		while (temp != null) {
-			temp = temp.next;
-		}
-	}
+    public void addAtEnd(int data) {
+        if (root == null) {
+            root = new Node(data);
+            return;
+        }
 
-	public void addAtStart(int data) {
-		Node newRoot = new Node(data);
-		newRoot.next = root;
-		root = newRoot;
-	}
+        Node temp = root;
+        while (temp != null) {
+            temp = temp.next;
+        }
+    }
 
-	public int removeFromStart() {
-		int data = root.data;
-		root = root.next;
-		return data;
-	}
+    public void addAtStart(int data) {
+        Node newRoot = new Node(data);
+        newRoot.next = root;
+        root = newRoot;
+    }
 
-	public void printList() {
-		if (root == null) {
-			System.out.println("List is empty!");
-		}
+    public int removeFromStart() {
+        int data = root.data;
+        root = root.next;
+        return data;
+    }
 
-		Node temp = root;
-		System.out.println();
+    public void printList() {
+        if (root == null) {
+            System.out.println("List is empty!");
+        }
 
-		while (temp != null) {
-			System.out.println(temp.data);
-			temp = temp.next;
-		}
-	}
+        Node temp = root;
+        System.out.println();
 
-	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
-		list.printList();
-		list.addAtEnd(10);
-		list.printList();
-		list.addAtStart(20);
-		list.printList();
-		list.removeFromStart();
-		list.printList();
-	}
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
 }
 
 class Node {
-	int data;
-	Node next;
+    int data;
+    Node next;
 
-	public Node(int data) {
-		this.data = data;
-	}
+    public Node(int data) {
+        this.data = data;
+    }
 }

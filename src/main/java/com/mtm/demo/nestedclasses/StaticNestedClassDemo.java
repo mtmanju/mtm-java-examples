@@ -4,17 +4,6 @@ public class StaticNestedClassDemo {
 
     static int data = 30;
 
-    static class Inner {
-
-        void msg() {
-            System.out.println("Data: " + data);
-        }
-
-        static void message() {
-            System.out.println("Static method");
-        }
-    }
-
     public static void main(String[] args) {
 
         // non-static method access
@@ -23,5 +12,16 @@ public class StaticNestedClassDemo {
 
         // static method access
         StaticNestedClassDemo.Inner.message();
+    }
+
+    static class Inner {
+
+        static void message() {
+            System.out.println("Static method");
+        }
+
+        void msg() {
+            System.out.println("Data: " + data);
+        }
     }
 }

@@ -2,7 +2,9 @@ package com.mtm.demo;
 
 public class StaticTest {
 
-    /** A static variable */
+    /**
+     * A static variable
+     */
     @SuppressWarnings("unused")
     private static final int num;
 
@@ -12,7 +14,9 @@ public class StaticTest {
         System.out.println("Inside static block");
     }
 
-    /** Constructor */
+    /**
+     * Constructor
+     */
     public StaticTest() {
         System.out.println("Inside Constructor");
     }
@@ -22,13 +26,13 @@ public class StaticTest {
 
     }
 
-    public void myNonStaticMethod() {
-        System.out.println("Inside non static func");
-    }
-
     public static void main(String[] args) {
         StaticTest.myStaticMethod();
         StaticTest test = new StaticTest();
         test.myNonStaticMethod();
+    }
+
+    public void myNonStaticMethod() {
+        System.out.println("Inside non static func");
     }
 }

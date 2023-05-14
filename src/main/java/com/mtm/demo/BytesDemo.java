@@ -3,7 +3,7 @@ package com.mtm.demo;
 public class BytesDemo {
 
     private static final String value = "品検索品検索品検索品検索品検索品検索品検索検索";
-    
+
 
     public static void main(String[] args) {
 

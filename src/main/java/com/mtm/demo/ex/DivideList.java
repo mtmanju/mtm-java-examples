@@ -8,7 +8,7 @@ public class DivideList {
     /**
      * @param args
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         System.out.println(start);
@@ -32,7 +32,7 @@ public class DivideList {
         System.out.println("Time Diff:" + (end - start));
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private static List subDivide(List list, int subCollectionSize, List resultList) {
         for (int i = 0; i < list.size() / subCollectionSize + 1; i++) {
             int maxLength;

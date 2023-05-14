@@ -10,35 +10,34 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * This class contains the custom file utility actions.
- * 
- * @author ManjunathMT
  *
+ * @author ManjunathMT
  */
 
 @Slf4j
 public final class FileUtils {
 
 
-	private FileUtils() {
-	}
+    private FileUtils() {
+    }
 
-	public static String getFileContent(String fileName) throws IOException {
-		log.info("getFileContent() --> ");
-		try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
-				BufferedReader bufReader = new BufferedReader(
-						new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+    public static String getFileContent(String fileName) throws IOException {
+        log.info("getFileContent() --> ");
+        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+             BufferedReader bufReader = new BufferedReader(
+                     new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
 
-			StringBuilder strBuilder = new StringBuilder();
-			String line = bufReader.readLine();
-			while (null != line) {
-				strBuilder.append(line).append("\n");
-				line = bufReader.readLine();
-			}
-			return strBuilder.toString();
-		} finally {
-			log.info("<-- getFileContent()");
-		}
+            StringBuilder strBuilder = new StringBuilder();
+            String line = bufReader.readLine();
+            while (null != line) {
+                strBuilder.append(line).append("\n");
+                line = bufReader.readLine();
+            }
+            return strBuilder.toString();
+        } finally {
+            log.info("<-- getFileContent()");
+        }
 
-	}
+    }
 
 }

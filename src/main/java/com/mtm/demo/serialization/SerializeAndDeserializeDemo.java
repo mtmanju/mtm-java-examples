@@ -9,11 +9,10 @@ import java.io.*;
 class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    static String company = "Infosys";
     Integer empId;
     String empName;
-
     transient Integer age;
-    static String company = "Infosys";
 
     public Employee(Integer empId, String empName, Integer age) {
         this.empId = empId;

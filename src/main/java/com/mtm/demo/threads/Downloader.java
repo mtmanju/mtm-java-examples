@@ -2,14 +2,14 @@ package com.mtm.demo.threads;
 
 public class Downloader extends Thread {
 
-	private final String url;
+    private final String url;
 
-	Downloader(String url) {
-		this.url = url;
-	}
+    Downloader(String url) {
+        this.url = url;
+    }
 
-	public void run() {
-		DownloadFile d = new DownloadFile();
-		d.download(this.url);
-	}
+    public void run() {
+        DownloadFile d = new DownloadFile();
+        d.download(this.url);
+    }
 }

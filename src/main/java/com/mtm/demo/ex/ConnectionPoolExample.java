@@ -8,12 +8,12 @@ import java.util.Hashtable;
 
 /**
  * Demonstrates how to enable connection pooling. Use debug option to observe connection usage.
- * 
+ * <p>
  * usage: java -Dcom.sun.jndi.ldap.connect.pool.debug=fine UsePool
  */
 class ConnectionPoolExample {
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void main(String[] args) {
         // Set up environment for creating initial context
         Hashtable env = new Hashtable(11);

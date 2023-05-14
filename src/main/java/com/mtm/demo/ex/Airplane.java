@@ -2,16 +2,16 @@ package com.mtm.demo.ex;
 
 public class Airplane {
 
-	String code = "11";
+    String code = "11";
 
-	public class BlackBox {
+    public class BlackBox {
 
-		String code = "22";
+        String code = "22";
 
-		public void printVariables() {
-			System.out.println(code);
-			System.out.println(Airplane.this.code);
-		}
-	}
+        public void printVariables() {
+            System.out.println(code);
+            System.out.println(Airplane.this.code);
+        }
+    }
 
 }

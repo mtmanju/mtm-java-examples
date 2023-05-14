@@ -5,8 +5,8 @@ import java.util.Locale;
 public class I18NDemo {
 
     public static void main(String[] args) {
-       // Locale locale = Locale.getDefault();
-         Locale locale=new Locale("in","in");//for the specific locale
+        // Locale locale = Locale.getDefault();
+        Locale locale = new Locale("in", "in");//for the specific locale
 
         System.out.println(locale.getDisplayCountry());
         System.out.println(locale.getDisplayLanguage());

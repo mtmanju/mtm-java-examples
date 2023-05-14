@@ -1,43 +1,43 @@
 package com.mtm.demo.abstraction;
 
-public class AbstractExample2 {
+interface A {
+    void a();
 
-	public static void main(String[] args) {
-		A a = new C();
-		a.a();
-		a.b();
-		a.c();
-		a.d();
-	}
+    void b();
+
+    void c();
+
+    void d();
 }
 
-interface A {
-	void a();
+public class AbstractExample2 {
 
-	void b();
-
-	void c();
-
-	void d();
+    public static void main(String[] args) {
+        A a = new C();
+        a.a();
+        a.b();
+        a.c();
+        a.d();
+    }
 }
 
 abstract class B implements A {
-	public void c() {
-		System.out.println("I am c");
-	}
+    public void c() {
+        System.out.println("I am c");
+    }
 }
 
 class C extends B {
 
-	public void a() {
-		System.out.println("I am a");
-	}
+    public void a() {
+        System.out.println("I am a");
+    }
 
-	public void b() {
-		System.out.println("I am b");
-	}
+    public void b() {
+        System.out.println("I am b");
+    }
 
-	public void d() {
-		System.out.println("I am d");
-	}
+    public void d() {
+        System.out.println("I am d");
+    }
 }

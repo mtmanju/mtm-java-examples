@@ -16,83 +16,83 @@ import java.util.List;
 
 public class XMLDemoBuilder {
 
-	@Test
-	public void testXMLBuilder() throws Exception {
-		XMLDemoBuilder xmlDemoBuilder = new XMLDemoBuilder();
-		String xmlString = xmlDemoBuilder.generateEmployeeDetailsXML();
-		System.out.println("XML String: " + xmlString);
-	}
+    private static Document newDocument() throws ParserConfigurationException {
+        final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        final DocumentBuilder builder = builderFactory.newDocumentBuilder();
+        return builder.newDocument();
+    }
 
-	public String generateEmployeeDetailsXML() throws Exception {
-		String[] xmlTags = null;
-		String[] xmlData = null;
+    private static void appendChildXMLElements(boolean generateEmptyTag, Document doc, Element rowElement,
+                                               String[] xmlTags, String[] xmlData) throws Exception {
+        if (xmlTags == null || xmlData == null || xmlTags.length != xmlData.length) {
+            throw new Exception("xmlTags or data are null, or lenghts do not match.");
+        }
+        Element tempElement = null;
+        for (int i = 0; i < xmlTags.length; i++) {
+            if (xmlTags[i] != null && (generateEmptyTag || xmlData[i] != null)) {
+                tempElement = doc.createElement(xmlTags[i]);
+                tempElement.appendChild(doc.createTextNode((xmlData[i] == null ? "" : xmlData[i])));
+                rowElement.appendChild(tempElement);
+            }
+        }
+    }
 
-		boolean generateEmptyTag = true;
+    private static String generateXML(Document doc) throws TransformerFactoryConfigurationError, TransformerException {
+        final StringWriter sw = new StringWriter();
+        final StreamResult sr = new StreamResult(sw);
+        final Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.transform(new DOMSource(doc), sr);
+        sw.flush();
+        return sw.toString();
+    }
 
-		final Document doc = newDocument();
-		final Element parentElement = doc.createElement("CANDIDATE_DETAILS");
-		final Element detailElement = doc.createElement("DETAILS");
-		final Element rowElement = doc.createElement("ROW");
+    @Test
+    public void testXMLBuilder() throws Exception {
+        XMLDemoBuilder xmlDemoBuilder = new XMLDemoBuilder();
+        String xmlString = xmlDemoBuilder.generateEmployeeDetailsXML();
+        System.out.println("XML String: " + xmlString);
+    }
 
-		xmlTags = new String[] { "EMPLOYEE_NAME", "QUALIFICATION", "PERCENTAGE" };
+    public String generateEmployeeDetailsXML() throws Exception {
+        String[] xmlTags = null;
+        String[] xmlData = null;
 
-		List<String> percentages = new ArrayList<>();
-		percentages.add("71");
-		percentages.add("72");
+        boolean generateEmptyTag = true;
 
-		xmlData = new String[] { "MANJUNATH.M.T", "BE", "70.0 %" };
+        final Document doc = newDocument();
+        final Element parentElement = doc.createElement("CANDIDATE_DETAILS");
+        final Element detailElement = doc.createElement("DETAILS");
+        final Element rowElement = doc.createElement("ROW");
 
-		appendChildXMLElements(generateEmptyTag, doc, rowElement, xmlTags, xmlData);
+        xmlTags = new String[]{"EMPLOYEE_NAME", "QUALIFICATION", "PERCENTAGE"};
 
-		final Element itemsListElement = doc.createElement("ITEMS");
-		xmlTags = new String[] { "PERCENTAGE", "Name" };
+        List<String> percentages = new ArrayList<>();
+        percentages.add("71");
+        percentages.add("72");
 
-		for (String percentage : percentages) {
-			Element rowElementInside = doc.createElement("ITEM");
-			itemsListElement.appendChild(rowElementInside);
-			xmlData = new String[] { percentage, "name" };
+        xmlData = new String[]{"MANJUNATH.M.T", "BE", "70.0 %"};
 
-			appendChildXMLElements(generateEmptyTag, doc, rowElementInside, xmlTags, xmlData);
-		}
+        appendChildXMLElements(generateEmptyTag, doc, rowElement, xmlTags, xmlData);
 
-		detailElement.appendChild(rowElement);
-		detailElement.appendChild(itemsListElement);
-		parentElement.appendChild(detailElement);
-		doc.appendChild(parentElement);
+        final Element itemsListElement = doc.createElement("ITEMS");
+        xmlTags = new String[]{"PERCENTAGE", "Name"};
 
-		final String xmlString = generateXML(doc);
-		return xmlString;
-	}
+        for (String percentage : percentages) {
+            Element rowElementInside = doc.createElement("ITEM");
+            itemsListElement.appendChild(rowElementInside);
+            xmlData = new String[]{percentage, "name"};
 
-	private static Document newDocument() throws ParserConfigurationException {
-		final DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-		final DocumentBuilder builder = builderFactory.newDocumentBuilder();
-		return builder.newDocument();
-	}
+            appendChildXMLElements(generateEmptyTag, doc, rowElementInside, xmlTags, xmlData);
+        }
 
-	private static void appendChildXMLElements(boolean generateEmptyTag, Document doc, Element rowElement,
-			String[] xmlTags, String[] xmlData) throws Exception {
-		if (xmlTags == null || xmlData == null || xmlTags.length != xmlData.length) {
-			throw new Exception("xmlTags or data are null, or lenghts do not match.");
-		}
-		Element tempElement = null;
-		for (int i = 0; i < xmlTags.length; i++) {
-			if (xmlTags[i] != null && (generateEmptyTag || xmlData[i] != null)) {
-				tempElement = doc.createElement(xmlTags[i]);
-				tempElement.appendChild(doc.createTextNode((xmlData[i] == null ? "" : xmlData[i])));
-				rowElement.appendChild(tempElement);
-			}
-		}
-	}
+        detailElement.appendChild(rowElement);
+        detailElement.appendChild(itemsListElement);
+        parentElement.appendChild(detailElement);
+        doc.appendChild(parentElement);
 
-	private static String generateXML(Document doc) throws TransformerFactoryConfigurationError, TransformerException {
-		final StringWriter sw = new StringWriter();
-		final StreamResult sr = new StreamResult(sw);
-		final Transformer transformer = TransformerFactory.newInstance().newTransformer();
-		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-		transformer.transform(new DOMSource(doc), sr);
-		sw.flush();
-		return sw.toString();
-	}
+        final String xmlString = generateXML(doc);
+        return xmlString;
+    }
 
 }

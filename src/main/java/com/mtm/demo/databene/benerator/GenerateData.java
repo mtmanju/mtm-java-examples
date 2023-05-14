@@ -22,117 +22,117 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 public class GenerateData {
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private static final SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-	private static final AtomicInteger AUTO_INCREMENT = new AtomicInteger(0);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat timestampFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+    private static final AtomicInteger AUTO_INCREMENT = new AtomicInteger(0);
 
-	public static void main(String[] args) {
-		log.info("Started at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
+    public static void main(String[] args) {
+        log.info("Started at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
 
-		List<String> generatedList = GenerateData.generateData(2);
-		log.info("Completed at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
-		log.info("Total Records Generated: {}", generatedList.size());
+        List<String> generatedList = GenerateData.generateData(2);
+        log.info("Completed at: {}", timestampFormat.format(new Date(System.currentTimeMillis())));
+        log.info("Total Records Generated: {}", generatedList.size());
 
-		for (String str : generatedList) {
-			log.info(str);
-		}
+        for (String str : generatedList) {
+            log.info(str);
+        }
 
-		try {
-			log.info("{}", GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
-		} catch (IOException e) {
-			log.error("", e);
-		}
+        try {
+            log.info("{}", GenerateData.loadResources("test_6.json", GenerateData.class.getClassLoader()));
+        } catch (IOException e) {
+            log.error("", e);
+        }
 
-		// Retrieve resource
-		String retrievedResource = GenerateData.class.getResource("test_6.json").getFile();
-		log.info("{}", retrievedResource);
-	}
+        // Retrieve resource
+        String retrievedResource = GenerateData.class.getResource("test_6.json").getFile();
+        log.info("{}", retrievedResource);
+    }
 
-	@SuppressWarnings({ "deprecation" })
-	public static List<String> generateData(int noOfRecordsToGenerate) {
-		List<String> generatedDataList = new ArrayList<>();
-		for (int i = 0; i < noOfRecordsToGenerate; i++) {
-			String generatedData = "";
-			int count = 100000000 + AUTO_INCREMENT.incrementAndGet();
-			PersonGenerator personGenerator = new PersonGenerator();
-			AddressGenerator addressGenerator = new AddressGenerator();
-			DateTimeGenerator dateGenerator = new DateTimeGenerator();
+    @SuppressWarnings({"deprecation"})
+    public static List<String> generateData(int noOfRecordsToGenerate) {
+        List<String> generatedDataList = new ArrayList<>();
+        for (int i = 0; i < noOfRecordsToGenerate; i++) {
+            String generatedData = "";
+            int count = 100000000 + AUTO_INCREMENT.incrementAndGet();
+            PersonGenerator personGenerator = new PersonGenerator();
+            AddressGenerator addressGenerator = new AddressGenerator();
+            DateTimeGenerator dateGenerator = new DateTimeGenerator();
 
-			try (StringWriter sw = new StringWriter()) {
-				Configuration cfg = new Configuration();
-				Random random = new Random();
+            try (StringWriter sw = new StringWriter()) {
+                Configuration cfg = new Configuration();
+                Random random = new Random();
 
-				dateGenerator.init(new DefaultBeneratorContext());
-				Date date = dateGenerator.generate();
-				dateGenerator.setMaxDate(date);
+                dateGenerator.init(new DefaultBeneratorContext());
+                Date date = dateGenerator.generate();
+                dateGenerator.setMaxDate(date);
 
-				personGenerator.init(new DefaultBeneratorContext());
-				Person person = personGenerator.generate();
+                personGenerator.init(new DefaultBeneratorContext());
+                Person person = personGenerator.generate();
 
-				addressGenerator.init(new DefaultBeneratorContext());
-				Address address = addressGenerator.generate();
+                addressGenerator.init(new DefaultBeneratorContext());
+                Address address = addressGenerator.generate();
 
-				Template template = cfg.getTemplate("src/main/resources/GenerateData.ftl");
-				Map<String, String> data = new HashMap<>();
+                Template template = cfg.getTemplate("src/main/resources/GenerateData.ftl");
+                Map<String, String> data = new HashMap<>();
 
-				String[] applicationTypes = { "C", "B", "P" };
+                String[] applicationTypes = {"C", "B", "P"};
 
-				data.put("APPLICATION_DATE", dateFormat.format(date));
-				data.put("APPLICATION_TYPE", applicationTypes[random.nextInt(3)]);
+                data.put("APPLICATION_DATE", dateFormat.format(date));
+                data.put("APPLICATION_TYPE", applicationTypes[random.nextInt(3)]);
 
-				// Customer Details
-				data.put("FULL_NAME", person.getGivenName() + " " + person.getFamilyName());
-				data.put("TITLE", person.getTitle());
-				data.put("FIRST_NAME", person.getGivenName());
-				data.put("MIDDLE_INITIAL", person.getSecondGivenName());
-				data.put("LAST_NAME", person.getFamilyName());
-				data.put("SUFFIX", "X");
+                // Customer Details
+                data.put("FULL_NAME", person.getGivenName() + " " + person.getFamilyName());
+                data.put("TITLE", person.getTitle());
+                data.put("FIRST_NAME", person.getGivenName());
+                data.put("MIDDLE_INITIAL", person.getSecondGivenName());
+                data.put("LAST_NAME", person.getFamilyName());
+                data.put("SUFFIX", "X");
 
-				// Address Details
-				data.put("ADDRESS_LINE1", address.getHouseNumber());
-				data.put("ADDRESS_LINE2", address.getStreet());
-				data.put("ZIP", address.getPostalCode());
-				data.put("ZIP4", address.getPostalCode());
-				data.put("CITY", String.valueOf(address.getCity()));
-				data.put("STATE", String.valueOf(address.getState()));
-				data.put("BIRTH_DT", dateFormat.format(person.getBirthDate()));
+                // Address Details
+                data.put("ADDRESS_LINE1", address.getHouseNumber());
+                data.put("ADDRESS_LINE2", address.getStreet());
+                data.put("ZIP", address.getPostalCode());
+                data.put("ZIP4", address.getPostalCode());
+                data.put("CITY", String.valueOf(address.getCity()));
+                data.put("STATE", String.valueOf(address.getState()));
+                data.put("BIRTH_DT", dateFormat.format(person.getBirthDate()));
 
-				template.process(data, sw);
-				generatedData = sw.toString();
+                template.process(data, sw);
+                generatedData = sw.toString();
 
-				generatedDataList.add(generatedData);
-				if (count % 2 == 0) {
-					generatedDataList.add(generatedData);
+                generatedDataList.add(generatedData);
+                if (count % 2 == 0) {
+                    generatedDataList.add(generatedData);
 
-					File file = new File(GenerateData.class.getResource("").getPath());
-					Path p = Paths.get(file.getAbsolutePath() + "/test_" + AUTO_INCREMENT.incrementAndGet() + ".json");
+                    File file = new File(GenerateData.class.getResource("").getPath());
+                    Path p = Paths.get(file.getAbsolutePath() + "/test_" + AUTO_INCREMENT.incrementAndGet() + ".json");
 
-					try (OutputStream out = new BufferedOutputStream(Files.newOutputStream(p,
-							StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE))) {
-						out.write(generatedData.getBytes());
-						out.flush();
-					}
-				}
-			} catch (Exception e) {
-				log.error("", e);
-			} finally {
-				personGenerator.close();
-				addressGenerator.close();
-				dateGenerator.close();
-			}
-		}
-		return generatedDataList;
-	}
+                    try (OutputStream out = new BufferedOutputStream(Files.newOutputStream(p,
+                            StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE))) {
+                        out.write(generatedData.getBytes());
+                        out.flush();
+                    }
+                }
+            } catch (Exception e) {
+                log.error("", e);
+            } finally {
+                personGenerator.close();
+                addressGenerator.close();
+                dateGenerator.close();
+            }
+        }
+        return generatedDataList;
+    }
 
-	public static List<InputStream> loadResources(final String name, final ClassLoader classLoader) throws IOException {
-		final List<InputStream> list = new ArrayList<>();
-		final Enumeration<URL> systemResources = (classLoader == null ? ClassLoader.getSystemClassLoader()
-				: classLoader).getResources(name);
+    public static List<InputStream> loadResources(final String name, final ClassLoader classLoader) throws IOException {
+        final List<InputStream> list = new ArrayList<>();
+        final Enumeration<URL> systemResources = (classLoader == null ? ClassLoader.getSystemClassLoader()
+                : classLoader).getResources(name);
 
-		while (systemResources.hasMoreElements()) {
-			list.add(systemResources.nextElement().openStream());
-		}
-		return list;
-	}
+        while (systemResources.hasMoreElements()) {
+            list.add(systemResources.nextElement().openStream());
+        }
+        return list;
+    }
 
 }

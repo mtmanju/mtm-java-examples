@@ -20,7 +20,7 @@ public class PriorityQueueDemo {
         System.out.print("\nIterating the queue elements:\t");
         Iterator<String> itr = queue.iterator();
         while (itr.hasNext()) {
-            System.out.print(itr.next() +"\t");
+            System.out.print(itr.next() + "\t");
         }
 
         queue.remove();
@@ -29,7 +29,7 @@ public class PriorityQueueDemo {
         System.out.print("\nAfter removing two elements:\t");
         Iterator<String> itr2 = queue.iterator();
         while (itr2.hasNext()) {
-            System.out.print(itr2.next() +"\t");
+            System.out.print(itr2.next() + "\t");
         }
 
     }
