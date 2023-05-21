@@ -6,7 +6,7 @@ abstract class Loan {
 
     abstract void getInterestRate(double rate);
 
-    public void calculateLoanPayment(double loanamount, int years) {
+    public void calculateLoanPayment(double loanAmount, int years) {
         /*
          * to calculate the monthly loan payment i.e. EMI
          *
@@ -14,13 +14,11 @@ abstract class Loan {
          * n=years*12;
          */
 
-        double EMI;
-        int n;
-
-        n = years * 12;
+        int n = years * 12;
         rate = rate / 1200;
-        EMI = ((rate * Math.pow((1 + rate), n)) / ((Math.pow((1 + rate), n)) - 1)) * loanamount;
+        double EMI = ((rate * Math.pow((1 + rate), n)) / ((Math.pow((1 + rate), n)) - 1)) * loanAmount;
 
-        System.out.println("your monthly EMI is " + EMI + " for the amount" + loanamount + " you have borrowed");
+        System.out.print("\n");
+        System.out.println("Your monthly EMI is " + EMI + " for the amount " + loanAmount + " you have borrowed");
     }
 }

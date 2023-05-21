@@ -3,6 +3,7 @@ package com.mtm.examples.designpattern.abstractdesign;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class AbstractFactoryPatternTest {
 
@@ -10,34 +11,33 @@ public class AbstractFactoryPatternTest {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("Enter the name of Bank from where you want to take loan amount: ");
+        System.out.print("Enter the name of Bank (HDFC, ICICI, SBI) : ");
         String bankName = br.readLine();
 
         System.out.print("\n");
-        System.out.print("Enter the type of loan e.g. home loan or business loan or education loan : ");
-
+        System.out.print("Enter the type of loan (Home, Business, Education) : ");
         String loanName = br.readLine();
-        AbstractFactory bankFactory = FactoryCreator.getFactory("Bank");
-        Bank b = bankFactory.getBank(bankName);
 
-        System.out.print("\n");
-        System.out.print("Enter the interest rate for " + b.getBankName() + ": ");
 
-        double rate = Double.parseDouble(br.readLine());
         System.out.print("\n");
         System.out.print("Enter the loan amount you want to take: ");
-
         double loanAmount = Double.parseDouble(br.readLine());
+
+        AbstractFactory bankFactory = FactoryCreator.getFactory("Bank");
+        Bank bank = Objects.requireNonNull(bankFactory).getBank(bankName);
         System.out.print("\n");
-        System.out.print("Enter the number of years to pay your entire loan amount: ");
+        System.out.print("Enter the interest rate for " + bank.getBankName() + ": ");
+        double interestRate = Double.parseDouble(br.readLine());
+
+        System.out.print("\n");
+        System.out.print("Enter the number of years to pay: ");
         int years = Integer.parseInt(br.readLine());
 
-        System.out.print("\n");
-        System.out.println("you are taking the loan from " + b.getBankName());
-
         AbstractFactory loanFactory = FactoryCreator.getFactory("Loan");
-        Loan l = loanFactory.getLoan(loanName);
-        l.getInterestRate(rate);
-        l.calculateLoanPayment(loanAmount, years);
+        if (null != loanFactory) {
+            Loan loan = loanFactory.getLoan(loanName);
+            loan.getInterestRate(interestRate);
+            loan.calculateLoanPayment(loanAmount, years);
+        }
     }
 }
