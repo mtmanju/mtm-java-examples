@@ -28,5 +28,8 @@ public class DateFormatUtils extends DateUtils {
 
 
     public static void main(String[] args) {
+
+        System.out.println(formatDate(new Date()));
+
     }
 }
