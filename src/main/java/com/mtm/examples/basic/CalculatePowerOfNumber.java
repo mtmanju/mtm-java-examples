@@ -26,11 +26,7 @@ public class CalculatePowerOfNumber {
 
     // Case 1
     public static long powerUsingRecursion(int base, int exponent) {
-        if (exponent != 0) {
-            return (base * powerUsingRecursion(base, exponent - 1));
-        } else {
-            return 1;
-        }
+        return exponent == 0 ? 1 : (base * powerUsingRecursion(base, exponent - 1));
     }
 
     // Case 2

@@ -10,16 +10,6 @@ interface A {
     void d();
 }
 
-public class AbstractExample2 {
-
-    public static void main(String[] args) {
-        A a = new C();
-        a.a();
-        a.b();
-        a.c();
-        a.d();
-    }
-}
 
 abstract class B implements A {
     public void c() {
@@ -40,4 +30,17 @@ class C extends B {
     public void d() {
         System.out.println("I am d");
     }
+
+}
+
+public class AbstractExample2 {
+
+    public static void main(String[] args) {
+        A a = new C();
+        a.a();
+        a.b();
+        a.c();
+        a.d();
+    }
+
 }
