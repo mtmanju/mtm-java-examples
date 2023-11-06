@@ -10,9 +10,7 @@ public class BubbleSort {
         // Way 1
         Integer[] arrayOfNumbers_1 = {5, 1, 6, 2, 3, 4};
         bubbleSort_1(arrayOfNumbers_1, arrayOfNumbers_1.length);
-        Arrays.stream(arrayOfNumbers_1).forEach(val -> {
-            System.out.print(val + " ");
-        });
+        Arrays.stream(arrayOfNumbers_1).forEach(val -> System.out.print(val + " "));
         System.out.println();
 
         // Way 2
@@ -27,10 +25,7 @@ public class BubbleSort {
         // Way 3
         Integer[] arrayOfNumbers_3 = {5, 1, 6, 2, 3, 4};
         optimizedBubbleSort(arrayOfNumbers_3, arrayOfNumbers_3.length);
-
-        Arrays.stream(arrayOfNumbers_3).forEach(val -> {
-            System.out.print(val + " ");
-        });
+        Arrays.stream(arrayOfNumbers_3).forEach(val -> System.out.print(val + " "));
     }
 
     private static void bubbleSort_1(Integer[] arrayOfNumbers, int arrayLength) {
