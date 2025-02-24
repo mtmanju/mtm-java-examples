@@ -161,6 +161,25 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Maven -->  
+			<plugin>  
+			  <groupId>org.openrewrite.maven</groupId>  
+			  <artifactId>rewrite-maven-plugin</artifactId>  
+			  <version>5.10.0</version>  
+			  <configuration>  
+			    <activeRecipes>  
+			      <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0</recipe>  
+			      <recipe>org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta</recipe>  
+			    </activeRecipes>  
+			  </configuration>
+			  <dependencies>
+			    <dependency>
+			      <groupId>org.openrewrite.recipe</groupId>
+			      <artifactId>rewrite-spring</artifactId>
+			      <version>5.7.0</version>
+			    </dependency>
+			  </dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
